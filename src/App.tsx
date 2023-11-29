@@ -1,5 +1,12 @@
+import AppLayout from './components/ui/Layout/AppLayout';
+import ExpSetting from './components/ExpSetting';
+
 const App = () => {
-  return <div className="text-3xl font-bold">메이플 큐브</div>;
+  return (
+    <AppLayout>
+      <ExpSetting />
+    </AppLayout>
+  );
 };
 
 export default App;
