@@ -26,8 +26,8 @@ const AccumulationPotion = ({
         label="경험 축적의 비약"
       >
         <MenuItem value={0}>없음</MenuItem>
-        <MenuItem value={10}>10% (경축비)</MenuItem>
-        <MenuItem value={20}>20% (고농축 경축비)</MenuItem>
+        <MenuItem value={10}>경축비 (10%)</MenuItem>
+        <MenuItem value={20}>고농축 경축비 (20%)</MenuItem>
       </Select>
     </FormControl>
   );

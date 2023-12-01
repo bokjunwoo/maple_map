@@ -23,7 +23,7 @@ const MvpCoupon = ({ value, handleChange }: MvpCouponType) => {
         label="뿌리기 / MVP 쿠폰"
       >
         <MenuItem value={0}>없음</MenuItem>
-        <MenuItem value={150}>사용</MenuItem>
+        <MenuItem value={150}>사용 (50%)</MenuItem>
       </Select>
     </FormControl>
   );
