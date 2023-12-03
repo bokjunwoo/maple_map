@@ -4,12 +4,14 @@ import { useState } from 'react';
 import MvpCoupon from './ui/Exp/MvpCoupon';
 import AccumulationPotion from './ui/Exp/AccumulationPotion';
 import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
+import SpiritPendant from './ui/Exp/SpiritPendant';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
   const [mvpCouponValue, setMvpCouponValue] = useState('');
   const [accumulationPotion, setAccumulationPotionValue] = useState('');
   const [extremeGoldPotion, setExtremeGoldPotionValue] = useState('');
+  const [spiritPendant, setSpiritPendantValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -22,6 +24,9 @@ const ExpSetting = () => {
   };
   const handleExtremeGoldPotionValueChange = (event: SelectChangeEvent) => {
     setExtremeGoldPotionValue(event.target.value);
+  };
+  const handleSpiritPendantValueChange = (event: SelectChangeEvent) => {
+    setSpiritPendantValue(event.target.value);
   };
 
   return (
@@ -41,6 +46,10 @@ const ExpSetting = () => {
       <ExtremeGoldPotion
         value={extremeGoldPotion}
         handleChange={handleExtremeGoldPotionValueChange}
+      />
+      <SpiritPendant
+        value={spiritPendant}
+        handleChange={handleSpiritPendantValueChange}
       />
     </Box>
   );
