@@ -5,6 +5,7 @@ import MvpCoupon from './ui/Exp/MvpCoupon';
 import AccumulationPotion from './ui/Exp/AccumulationPotion';
 import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
 import SpiritPendant from './ui/Exp/SpiritPendant';
+import BoostRing from './ui/Exp/BoostRing';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -12,6 +13,7 @@ const ExpSetting = () => {
   const [accumulationPotion, setAccumulationPotionValue] = useState('');
   const [extremeGoldPotion, setExtremeGoldPotionValue] = useState('');
   const [spiritPendant, setSpiritPendantValue] = useState('');
+  const [boostRing, setBoostRingValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -27,6 +29,9 @@ const ExpSetting = () => {
   };
   const handleSpiritPendantValueChange = (event: SelectChangeEvent) => {
     setSpiritPendantValue(event.target.value);
+  };
+  const handleBoostRingValueChange = (event: SelectChangeEvent) => {
+    setBoostRingValue(event.target.value);
   };
 
   return (
@@ -51,6 +56,7 @@ const ExpSetting = () => {
         value={spiritPendant}
         handleChange={handleSpiritPendantValueChange}
       />
+      <BoostRing value={boostRing} handleChange={handleBoostRingValueChange} />
     </Box>
   );
 };
