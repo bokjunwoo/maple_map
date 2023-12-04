@@ -6,6 +6,7 @@ import AccumulationPotion from './ui/Exp/AccumulationPotion';
 import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
 import SpiritPendant from './ui/Exp/SpiritPendant';
 import BoostRing from './ui/Exp/BoostRing';
+import ElvenBlessing from './ui/Exp/ElvenBlessing';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -14,6 +15,7 @@ const ExpSetting = () => {
   const [extremeGoldPotion, setExtremeGoldPotionValue] = useState('');
   const [spiritPendant, setSpiritPendantValue] = useState('');
   const [boostRing, setBoostRingValue] = useState('');
+  const [elvenBlessing, setElvenBlessingValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -32,6 +34,9 @@ const ExpSetting = () => {
   };
   const handleBoostRingValueChange = (event: SelectChangeEvent) => {
     setBoostRingValue(event.target.value);
+  };
+  const handleElvenBlessingValueChange = (event: SelectChangeEvent) => {
+    setElvenBlessingValue(event.target.value);
   };
 
   return (
@@ -57,6 +62,11 @@ const ExpSetting = () => {
         handleChange={handleSpiritPendantValueChange}
       />
       <BoostRing value={boostRing} handleChange={handleBoostRingValueChange} />
+
+      <ElvenBlessing
+        value={elvenBlessing}
+        handleChange={handleElvenBlessingValueChange}
+      />
     </Box>
   );
 };
