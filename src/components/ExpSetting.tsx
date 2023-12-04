@@ -7,6 +7,7 @@ import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
 import SpiritPendant from './ui/Exp/SpiritPendant';
 import BoostRing from './ui/Exp/BoostRing';
 import ElvenBlessing from './ui/Exp/ElvenBlessing';
+import KinshipRing from './ui/Exp/KinshipRing';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -16,6 +17,7 @@ const ExpSetting = () => {
   const [spiritPendant, setSpiritPendantValue] = useState('');
   const [boostRing, setBoostRingValue] = useState('');
   const [elvenBlessing, setElvenBlessingValue] = useState('');
+  const [kinshipRing, setKinshipRingValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -37,6 +39,9 @@ const ExpSetting = () => {
   };
   const handleElvenBlessingValueChange = (event: SelectChangeEvent) => {
     setElvenBlessingValue(event.target.value);
+  };
+  const handleKinshipRingValueChange = (event: SelectChangeEvent) => {
+    setKinshipRingValue(event.target.value);
   };
 
   return (
@@ -66,6 +71,11 @@ const ExpSetting = () => {
       <ElvenBlessing
         value={elvenBlessing}
         handleChange={handleElvenBlessingValueChange}
+      />
+
+      <KinshipRing
+        value={kinshipRing}
+        handleChange={handleKinshipRingValueChange}
       />
     </Box>
   );
