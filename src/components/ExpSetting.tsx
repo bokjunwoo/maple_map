@@ -10,6 +10,7 @@ import ElvenBlessing from './ui/Exp/ElvenBlessing';
 import KinshipRing from './ui/Exp/KinshipRing';
 import ZeroUnion from './ui/Exp/ZeroUnion';
 import LoadedDice from './ui/Exp/LoadedDice';
+import PremiumPCroom from './ui/Exp/PremiumPCroom';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -22,6 +23,7 @@ const ExpSetting = () => {
   const [kinshipRing, setKinshipRingValue] = useState('');
   const [zeroUnion, setZeroUnionValue] = useState('');
   const [loadedDice, setLoadedDiceValue] = useState('');
+  const [premiumPCroom, setPremiumPCroomValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -52,6 +54,9 @@ const ExpSetting = () => {
   };
   const handleLoadedDiceChange = (event: SelectChangeEvent) => {
     setLoadedDiceValue(event.target.value);
+  };
+  const handlePremiumPCroomChange = (event: SelectChangeEvent) => {
+    setPremiumPCroomValue(event.target.value);
   };
 
   return (
@@ -91,6 +96,11 @@ const ExpSetting = () => {
       <ZeroUnion value={zeroUnion} handleChange={handleZeroUnionValueChange} />
 
       <LoadedDice value={loadedDice} handleChange={handleLoadedDiceChange} />
+
+      <PremiumPCroom
+        value={premiumPCroom}
+        handleChange={handlePremiumPCroomChange}
+      />
     </Box>
   );
 };
