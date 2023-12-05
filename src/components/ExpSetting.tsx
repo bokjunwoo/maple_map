@@ -8,6 +8,7 @@ import SpiritPendant from './ui/Exp/SpiritPendant';
 import BoostRing from './ui/Exp/BoostRing';
 import ElvenBlessing from './ui/Exp/ElvenBlessing';
 import KinshipRing from './ui/Exp/KinshipRing';
+import ZeroUnion from './ui/Exp/ZeroUnion';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -18,6 +19,7 @@ const ExpSetting = () => {
   const [boostRing, setBoostRingValue] = useState('');
   const [elvenBlessing, setElvenBlessingValue] = useState('');
   const [kinshipRing, setKinshipRingValue] = useState('');
+  const [zeroUnion, setZeroUnionValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -42,6 +44,9 @@ const ExpSetting = () => {
   };
   const handleKinshipRingValueChange = (event: SelectChangeEvent) => {
     setKinshipRingValue(event.target.value);
+  };
+  const handleZeroUnionValueChange = (event: SelectChangeEvent) => {
+    setZeroUnionValue(event.target.value);
   };
 
   return (
@@ -77,6 +82,8 @@ const ExpSetting = () => {
         value={kinshipRing}
         handleChange={handleKinshipRingValueChange}
       />
+
+      <ZeroUnion value={zeroUnion} handleChange={handleZeroUnionValueChange} />
     </Box>
   );
 };
