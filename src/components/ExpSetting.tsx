@@ -9,6 +9,7 @@ import BoostRing from './ui/Exp/BoostRing';
 import ElvenBlessing from './ui/Exp/ElvenBlessing';
 import KinshipRing from './ui/Exp/KinshipRing';
 import ZeroUnion from './ui/Exp/ZeroUnion';
+import LoadedDice from './ui/Exp/LoadedDice';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -20,6 +21,7 @@ const ExpSetting = () => {
   const [elvenBlessing, setElvenBlessingValue] = useState('');
   const [kinshipRing, setKinshipRingValue] = useState('');
   const [zeroUnion, setZeroUnionValue] = useState('');
+  const [loadedDice, setLoadedDiceValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -47,6 +49,9 @@ const ExpSetting = () => {
   };
   const handleZeroUnionValueChange = (event: SelectChangeEvent) => {
     setZeroUnionValue(event.target.value);
+  };
+  const handleLoadedDiceChange = (event: SelectChangeEvent) => {
+    setLoadedDiceValue(event.target.value);
   };
 
   return (
@@ -84,6 +89,8 @@ const ExpSetting = () => {
       />
 
       <ZeroUnion value={zeroUnion} handleChange={handleZeroUnionValueChange} />
+
+      <LoadedDice value={loadedDice} handleChange={handleLoadedDiceChange} />
     </Box>
   );
 };
