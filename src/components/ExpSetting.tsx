@@ -12,6 +12,7 @@ import ZeroUnion from './ui/Exp/ZeroUnion';
 import LoadedDice from './ui/Exp/LoadedDice';
 import PremiumPCroom from './ui/Exp/PremiumPCroom';
 import HolySymbol from './ui/Exp/HolySymbol';
+import HyperStats from './ui/Exp/HyperStats';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -26,6 +27,7 @@ const ExpSetting = () => {
   const [loadedDice, setLoadedDiceValue] = useState('');
   const [premiumPCroom, setPremiumPCroomValue] = useState('');
   const [holySymbol, setHolySymbolValue] = useState('');
+  const [hyperStats, setHyperStatsValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -62,6 +64,9 @@ const ExpSetting = () => {
   };
   const handleHolySymbolChange = (event: SelectChangeEvent) => {
     setHolySymbolValue(event.target.value);
+  };
+  const handleHyperStatsChange = (event: SelectChangeEvent) => {
+    setHyperStatsValue(event.target.value);
   };
 
   return (
@@ -108,6 +113,8 @@ const ExpSetting = () => {
       />
 
       <HolySymbol value={holySymbol} handleChange={handleHolySymbolChange} />
+
+      <HyperStats value={hyperStats} handleChange={handleHyperStatsChange} />
     </Box>
   );
 };
