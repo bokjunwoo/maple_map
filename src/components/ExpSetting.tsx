@@ -11,6 +11,7 @@ import KinshipRing from './ui/Exp/KinshipRing';
 import ZeroUnion from './ui/Exp/ZeroUnion';
 import LoadedDice from './ui/Exp/LoadedDice';
 import PremiumPCroom from './ui/Exp/PremiumPCroom';
+import HolySymbol from './ui/Exp/HolySymbol';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -24,6 +25,7 @@ const ExpSetting = () => {
   const [zeroUnion, setZeroUnionValue] = useState('');
   const [loadedDice, setLoadedDiceValue] = useState('');
   const [premiumPCroom, setPremiumPCroomValue] = useState('');
+  const [holySymbol, setHolySymbolValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -57,6 +59,9 @@ const ExpSetting = () => {
   };
   const handlePremiumPCroomChange = (event: SelectChangeEvent) => {
     setPremiumPCroomValue(event.target.value);
+  };
+  const handleHolySymbolChange = (event: SelectChangeEvent) => {
+    setHolySymbolValue(event.target.value);
   };
 
   return (
@@ -101,6 +106,8 @@ const ExpSetting = () => {
         value={premiumPCroom}
         handleChange={handlePremiumPCroomChange}
       />
+
+      <HolySymbol value={holySymbol} handleChange={handleHolySymbolChange} />
     </Box>
   );
 };
