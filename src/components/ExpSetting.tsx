@@ -14,6 +14,7 @@ import PremiumPCroom from './ui/Exp/PremiumPCroom';
 import HolySymbol from './ui/Exp/HolySymbol';
 import HyperStats from './ui/Exp/HyperStats';
 import ExpEtc from './ui/Exp/ExpEtc';
+import UnionPlacement from './ui/Exp/UnionPlacement';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -29,6 +30,7 @@ const ExpSetting = () => {
   const [premiumPCroom, setPremiumPCroomValue] = useState('');
   const [holySymbol, setHolySymbolValue] = useState('');
   const [hyperStats, setHyperStatsValue] = useState('');
+  const [unionPlacement, setUnionPlacementValue] = useState('');
   const [expEtc, setExpEtcValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
@@ -69,6 +71,9 @@ const ExpSetting = () => {
   };
   const handleHyperStatsChange = (event: SelectChangeEvent) => {
     setHyperStatsValue(event.target.value);
+  };
+  const handleUnionPlacementChange = (event: SelectChangeEvent) => {
+    setUnionPlacementValue(event.target.value);
   };
   const handleExpEtcChange = (event: SelectChangeEvent) => {
     setExpEtcValue(event.target.value);
@@ -120,6 +125,11 @@ const ExpSetting = () => {
       <HolySymbol value={holySymbol} handleChange={handleHolySymbolChange} />
 
       <HyperStats value={hyperStats} handleChange={handleHyperStatsChange} />
+
+      <UnionPlacement
+        value={unionPlacement}
+        handleChange={handleUnionPlacementChange}
+      />
 
       <ExpEtc value={expEtc} handleChange={handleExpEtcChange} />
     </Box>
