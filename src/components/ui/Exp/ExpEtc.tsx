@@ -1,4 +1,10 @@
-import { FormControl, SelectChangeEvent, TextField } from '@mui/material';
+import {
+  FormControl,
+  InputAdornment,
+  SelectChangeEvent,
+  Input,
+  InputLabel,
+} from '@mui/material';
 
 type ExpEtcType = {
   value: string;
@@ -7,8 +13,16 @@ type ExpEtcType = {
 
 const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
-      <TextField id="exp-etc" label="기타 경험치" variant="standard" />
+    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+      <InputLabel htmlFor="exp-etc">기타 경험치</InputLabel>
+      <Input
+        id="exp-etc"
+        endAdornment={
+          <InputAdornment position="end" sx={{ mr: 0.7 }}>
+            %
+          </InputAdornment>
+        }
+      />
     </FormControl>
   );
 };

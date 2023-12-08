@@ -1,4 +1,10 @@
-import { FormControl, SelectChangeEvent, TextField } from '@mui/material';
+import {
+  FormControl,
+  Input,
+  InputAdornment,
+  InputLabel,
+  SelectChangeEvent,
+} from '@mui/material';
 
 type HyperStatsType = {
   value: string;
@@ -7,8 +13,16 @@ type HyperStatsType = {
 
 const HyperStats = ({ value, handleChange }: HyperStatsType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
-      <TextField id="hyper-stats" label="하이퍼스탯" variant="standard" />
+    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+      <InputLabel htmlFor="hyper-stats">하이퍼스탯</InputLabel>
+      <Input
+        id="hyper-stats"
+        endAdornment={
+          <InputAdornment position="end" sx={{ mr: 0.7 }}>
+            %
+          </InputAdornment>
+        }
+      />
     </FormControl>
   );
 };

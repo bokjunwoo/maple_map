@@ -1,4 +1,10 @@
-import { FormControl, SelectChangeEvent, TextField } from '@mui/material';
+import {
+  FormControl,
+  Input,
+  InputAdornment,
+  InputLabel,
+  SelectChangeEvent,
+} from '@mui/material';
 
 type UnionPlacementType = {
   value: string;
@@ -7,8 +13,16 @@ type UnionPlacementType = {
 
 const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
-      <TextField id="union-placement" label="유니온 배치" variant="standard" />
+    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+      <InputLabel htmlFor="union-placement">유니온 배치</InputLabel>
+      <Input
+        id="union-placement"
+        endAdornment={
+          <InputAdornment position="end" sx={{ mr: 0.7 }}>
+            %
+          </InputAdornment>
+        }
+      />
     </FormControl>
   );
 };
