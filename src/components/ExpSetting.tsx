@@ -32,6 +32,7 @@ const ExpSetting = () => {
   const [hyperStats, setHyperStatsValue] = useState('');
   const [unionPlacement, setUnionPlacementValue] = useState('');
   const [expEtc, setExpEtcValue] = useState('');
+  console.log(expEtc);
 
   const handleExpCouponValueChange = (event: SelectChangeEvent) => {
     setExpCouponValue(event.target.value);
@@ -75,8 +76,12 @@ const ExpSetting = () => {
   const handleUnionPlacementChange = (event: SelectChangeEvent) => {
     setUnionPlacementValue(event.target.value);
   };
-  const handleExpEtcChange = (event: SelectChangeEvent) => {
-    setExpEtcValue(event.target.value);
+  const handleExpEtcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    if (/^\d*\.?\d*$/.test(inputValue)) {
+      setExpEtcValue(inputValue);
+    }
   };
 
   return (
