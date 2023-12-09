@@ -1,6 +1,7 @@
 import { Box, SelectChangeEvent } from '@mui/material';
-import ExpCoupon from './ui/Exp/ExpCoupon';
 import { useState } from 'react';
+import { numberAndDotRegex } from '../util/util';
+import ExpCoupon from './ui/Exp/ExpCoupon';
 import MvpCoupon from './ui/Exp/MvpCoupon';
 import AccumulationPotion from './ui/Exp/AccumulationPotion';
 import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
@@ -79,7 +80,7 @@ const ExpSetting = () => {
   const handleExpEtcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
-    if (/^\d*\.?\d*$/.test(inputValue)) {
+    if (numberAndDotRegex.test(inputValue)) {
       setExpEtcValue(inputValue);
     }
   };
