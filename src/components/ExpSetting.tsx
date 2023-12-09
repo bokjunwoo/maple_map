@@ -74,8 +74,18 @@ const ExpSetting = () => {
   const handleHyperStatsChange = (event: SelectChangeEvent) => {
     setHyperStatsValue(event.target.value);
   };
-  const handleUnionPlacementChange = (event: SelectChangeEvent) => {
-    setUnionPlacementValue(event.target.value);
+  const handleUnionPlacementChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const inputValue = event.target.value;
+
+    if (numberAndDotRegex.test(inputValue)) {
+      setUnionPlacementValue(inputValue);
+    }
+
+    if (Number(inputValue) > 10) {
+      setUnionPlacementValue('10');
+    }
   };
   const handleExpEtcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
