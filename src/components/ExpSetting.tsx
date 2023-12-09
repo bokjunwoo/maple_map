@@ -71,8 +71,18 @@ const ExpSetting = () => {
   const handleHolySymbolChange = (event: SelectChangeEvent) => {
     setHolySymbolValue(event.target.value);
   };
-  const handleHyperStatsChange = (event: SelectChangeEvent) => {
-    setHyperStatsValue(event.target.value);
+  const handleHyperStatsChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const inputValue = event.target.value;
+
+    if (numberAndDotRegex.test(inputValue)) {
+      setHyperStatsValue(inputValue);
+    }
+
+    if (Number(inputValue) > 10) {
+      setHyperStatsValue('10');
+    }
   };
   const handleUnionPlacementChange = (
     event: React.ChangeEvent<HTMLInputElement>
