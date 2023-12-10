@@ -1,1 +1,1 @@
-export const numberAndDotRegex = /^\d*\.?\d*$/;
+export const numberAndDotRegex = /^\d*(\.\d{0,2})?$/;
