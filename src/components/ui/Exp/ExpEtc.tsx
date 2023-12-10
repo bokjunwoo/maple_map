@@ -1,14 +1,8 @@
-import {
-  FormControl,
-  InputAdornment,
-  SelectChangeEvent,
-  Input,
-  InputLabel,
-} from '@mui/material';
+import { FormControl, InputAdornment, Input, InputLabel } from '@mui/material';
 
 type ExpEtcType = {
   value: string;
-  handleChange: (event: SelectChangeEvent) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
@@ -22,6 +16,8 @@ const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
             %
           </InputAdornment>
         }
+        value={value}
+        onChange={handleChange}
       />
     </FormControl>
   );

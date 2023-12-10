@@ -1,14 +1,8 @@
-import {
-  FormControl,
-  Input,
-  InputAdornment,
-  InputLabel,
-  SelectChangeEvent,
-} from '@mui/material';
+import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
 
 type HyperStatsType = {
   value: string;
-  handleChange: (event: SelectChangeEvent) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const HyperStats = ({ value, handleChange }: HyperStatsType) => {
@@ -22,6 +16,8 @@ const HyperStats = ({ value, handleChange }: HyperStatsType) => {
             %
           </InputAdornment>
         }
+        value={value}
+        onChange={handleChange}
       />
     </FormControl>
   );

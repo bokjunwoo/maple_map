@@ -1,14 +1,8 @@
-import {
-  FormControl,
-  Input,
-  InputAdornment,
-  InputLabel,
-  SelectChangeEvent,
-} from '@mui/material';
+import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
 
 type UnionPlacementType = {
   value: string;
-  handleChange: (event: SelectChangeEvent) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
@@ -22,6 +16,8 @@ const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
             %
           </InputAdornment>
         }
+        value={value}
+        onChange={handleChange}
       />
     </FormControl>
   );

@@ -1,20 +1,16 @@
-import {
-  FormControl,
-  Input,
-  InputAdornment,
-  InputLabel,
-  SelectChangeEvent,
-} from '@mui/material';
+import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
 
 type HolySymbolType = {
   value: string;
-  handleChange: (event: SelectChangeEvent) => void;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const HolySymbol = ({ value, handleChange }: HolySymbolType) => {
   return (
     <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
-      <InputLabel htmlFor="holy-symbol">홀리심볼</InputLabel>
+      <InputLabel htmlFor="holy-symbol" error>
+        홀리심볼
+      </InputLabel>
       <Input
         id="holy-symbol"
         endAdornment={
@@ -22,6 +18,9 @@ const HolySymbol = ({ value, handleChange }: HolySymbolType) => {
             %
           </InputAdornment>
         }
+        value={value}
+        onChange={handleChange}
+        error={true}
       />
     </FormControl>
   );
