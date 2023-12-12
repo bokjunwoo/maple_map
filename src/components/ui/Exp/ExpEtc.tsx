@@ -1,4 +1,4 @@
-import { FormControl, InputAdornment, Input, InputLabel } from '@mui/material';
+import { InputAdornment, Input, InputLabel } from '@mui/material';
 
 type ExpEtcType = {
   value: string;
@@ -7,7 +7,7 @@ type ExpEtcType = {
 
 const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+    <>
       <InputLabel htmlFor="exp-etc">기타 경험치</InputLabel>
       <Input
         id="exp-etc"
@@ -19,7 +19,7 @@ const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
         value={value}
         onChange={handleChange}
       />
-    </FormControl>
+    </>
   );
 };
 

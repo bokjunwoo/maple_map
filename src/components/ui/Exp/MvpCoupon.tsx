@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type MvpCouponType = {
   value: string;
@@ -13,7 +7,7 @@ type MvpCouponType = {
 
 const MvpCoupon = ({ value, handleChange }: MvpCouponType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="mvp-coupon">뿌리기 / MVP 쿠폰</InputLabel>
       <Select
         labelId="mvp-coupon"
@@ -25,7 +19,7 @@ const MvpCoupon = ({ value, handleChange }: MvpCouponType) => {
         <MenuItem value={0}>없음</MenuItem>
         <MenuItem value={150}>사용 (50%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

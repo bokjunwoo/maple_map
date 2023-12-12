@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type SpiritPendantType = {
   value: string;
@@ -13,7 +7,7 @@ type SpiritPendantType = {
 
 const SpiritPendant = ({ value, handleChange }: SpiritPendantType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="spirit-pendant">정령의 펜던트</InputLabel>
       <Select
         labelId="spirit-pendant"
@@ -27,7 +21,7 @@ const SpiritPendant = ({ value, handleChange }: SpiritPendantType) => {
         <MenuItem value={20}>20%</MenuItem>
         <MenuItem value={30}>30%</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

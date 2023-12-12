@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type AccumulationPotionType = {
   value: string;
@@ -16,7 +10,7 @@ const AccumulationPotion = ({
   handleChange,
 }: AccumulationPotionType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="accumulation-potion">경험 축적의 비약</InputLabel>
       <Select
         labelId="accumulation-potion"
@@ -29,7 +23,7 @@ const AccumulationPotion = ({
         <MenuItem value={10}>경축비 (10%)</MenuItem>
         <MenuItem value={20}>고농축 경축비 (20%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

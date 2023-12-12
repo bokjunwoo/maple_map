@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type KinshipRingType = {
   value: string;
@@ -13,7 +7,7 @@ type KinshipRingType = {
 
 const KinshipRing = ({ value, handleChange }: KinshipRingType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="kinship-ring">혈맹의 반지</InputLabel>
       <Select
         labelId="kinship-ring"
@@ -25,7 +19,7 @@ const KinshipRing = ({ value, handleChange }: KinshipRingType) => {
         <MenuItem value={0}>없음</MenuItem>
         <MenuItem value={10}>착용 (10%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

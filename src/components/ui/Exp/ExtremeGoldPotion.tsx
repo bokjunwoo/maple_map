@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ExtremeGoldPotionType = {
   value: string;
@@ -13,7 +7,7 @@ type ExtremeGoldPotionType = {
 
 const ExtremeGoldPotion = ({ value, handleChange }: ExtremeGoldPotionType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="extreme-gold-potion">익스트림 골드(몬파)</InputLabel>
       <Select
         labelId="extreme-gold-potion"
@@ -25,7 +19,7 @@ const ExtremeGoldPotion = ({ value, handleChange }: ExtremeGoldPotionType) => {
         <MenuItem value={0}>없음</MenuItem>
         <MenuItem value={10}>사용 (10%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

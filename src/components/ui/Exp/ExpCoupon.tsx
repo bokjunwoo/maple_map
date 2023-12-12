@@ -1,19 +1,13 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ExpCouponType = {
   value: string;
-  handleChange: (event: SelectChangeEvent) => void;
+  handleChange: (event: SelectChangeEvent<string>) => void;
 };
 
 const ExpCoupon = ({ value, handleChange }: ExpCouponType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="exp-coupon">경험치 쿠폰</InputLabel>
       <Select
         labelId="exp-coupon"
@@ -27,7 +21,7 @@ const ExpCoupon = ({ value, handleChange }: ExpCouponType) => {
         <MenuItem value={200}>2배 쿠폰 (200%)</MenuItem>
         <MenuItem value={300}>3배 쿠폰 (300%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

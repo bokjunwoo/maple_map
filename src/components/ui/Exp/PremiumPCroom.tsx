@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type PremiumPCroomType = {
   value: string;
@@ -13,7 +7,7 @@ type PremiumPCroomType = {
 
 const PremiumPCroom = ({ value, handleChange }: PremiumPCroomType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="premium-PC-room">프리미엄 PC방</InputLabel>
       <Select
         labelId="premium-PC-room"
@@ -25,7 +19,7 @@ const PremiumPCroom = ({ value, handleChange }: PremiumPCroomType) => {
         <MenuItem value={0}>없음</MenuItem>
         <MenuItem value={30}>적용 (30%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

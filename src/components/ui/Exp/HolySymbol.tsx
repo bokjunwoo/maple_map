@@ -1,4 +1,4 @@
-import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
+import { Input, InputAdornment, InputLabel } from '@mui/material';
 
 type HolySymbolType = {
   value: string;
@@ -7,10 +7,8 @@ type HolySymbolType = {
 
 const HolySymbol = ({ value, handleChange }: HolySymbolType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
-      <InputLabel htmlFor="holy-symbol" error>
-        홀리심볼
-      </InputLabel>
+    <>
+      <InputLabel htmlFor="holy-symbol">홀리심볼</InputLabel>
       <Input
         id="holy-symbol"
         endAdornment={
@@ -20,9 +18,8 @@ const HolySymbol = ({ value, handleChange }: HolySymbolType) => {
         }
         value={value}
         onChange={handleChange}
-        error={true}
       />
-    </FormControl>
+    </>
   );
 };
 

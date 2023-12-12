@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type BoostRingType = {
   value: string;
@@ -13,7 +7,7 @@ type BoostRingType = {
 
 const BoostRing = ({ value, handleChange }: BoostRingType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="exp-boost-ring">경험치 부스트 링</InputLabel>
       <Select
         labelId="exp-boost-ring"
@@ -25,7 +19,7 @@ const BoostRing = ({ value, handleChange }: BoostRingType) => {
         <MenuItem value={0}>없음</MenuItem>
         <MenuItem value={10}>착용 (15%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

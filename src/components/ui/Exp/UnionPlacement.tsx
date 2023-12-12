@@ -1,4 +1,4 @@
-import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
+import { Input, InputAdornment, InputLabel } from '@mui/material';
 
 type UnionPlacementType = {
   value: string;
@@ -7,7 +7,7 @@ type UnionPlacementType = {
 
 const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+    <>
       <InputLabel htmlFor="union-placement">유니온 배치</InputLabel>
       <Input
         id="union-placement"
@@ -19,7 +19,7 @@ const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
         value={value}
         onChange={handleChange}
       />
-    </FormControl>
+    </>
   );
 };
 

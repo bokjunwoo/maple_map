@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ZeroUnionType = {
   value: string;
@@ -13,7 +7,7 @@ type ZeroUnionType = {
 
 const ZeroUnion = ({ value, handleChange }: ZeroUnionType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="zero-union">제로 유니온 공격대원</InputLabel>
       <Select
         labelId="zero-union"
@@ -29,7 +23,7 @@ const ZeroUnion = ({ value, handleChange }: ZeroUnionType) => {
         <MenuItem value={10}>SS (10%)</MenuItem>
         <MenuItem value={12}>SSS (12%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 

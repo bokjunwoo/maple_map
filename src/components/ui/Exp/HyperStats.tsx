@@ -1,4 +1,4 @@
-import { FormControl, Input, InputAdornment, InputLabel } from '@mui/material';
+import { Input, InputAdornment, InputLabel } from '@mui/material';
 
 type HyperStatsType = {
   value: string;
@@ -7,7 +7,7 @@ type HyperStatsType = {
 
 const HyperStats = ({ value, handleChange }: HyperStatsType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, maxWidth: 150 }}>
+    <>
       <InputLabel htmlFor="hyper-stats">하이퍼스탯</InputLabel>
       <Input
         id="hyper-stats"
@@ -19,7 +19,7 @@ const HyperStats = ({ value, handleChange }: HyperStatsType) => {
         value={value}
         onChange={handleChange}
       />
-    </FormControl>
+    </>
   );
 };
 

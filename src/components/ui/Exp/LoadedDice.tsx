@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  InputLabel,
-} from '@mui/material';
+import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type LoadedDiceType = {
   value: string;
@@ -13,7 +7,7 @@ type LoadedDiceType = {
 
 const LoadedDice = ({ value, handleChange }: LoadedDiceType) => {
   return (
-    <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+    <>
       <InputLabel id="loaded-dice">로디드 다이스</InputLabel>
       <Select
         labelId="loaded-dice"
@@ -27,7 +21,7 @@ const LoadedDice = ({ value, handleChange }: LoadedDiceType) => {
         <MenuItem value={40}>66 (40%)</MenuItem>
         <MenuItem value={50}>666 (50%)</MenuItem>
       </Select>
-    </FormControl>
+    </>
   );
 };
 
