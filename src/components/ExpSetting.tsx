@@ -16,6 +16,8 @@ import HolySymbol from './ui/Exp/HolySymbol';
 import HyperStats from './ui/Exp/HyperStats';
 import ExpEtc from './ui/Exp/ExpEtc';
 import UnionPlacement from './ui/Exp/UnionPlacement';
+import ExpSelectSection from './ExpSelectSection';
+import ExpInputSection from './ExpInputSection';
 
 const ExpSetting = () => {
   const [expCouponValue, setExpCouponValue] = useState('');
@@ -33,9 +35,8 @@ const ExpSetting = () => {
   const [hyperStats, setHyperStatsValue] = useState('');
   const [unionPlacement, setUnionPlacementValue] = useState('');
   const [expEtc, setExpEtcValue] = useState('');
-  console.log(expEtc);
 
-  const handleExpCouponValueChange = (event: SelectChangeEvent) => {
+  const handleExpCouponValueChange = (event: SelectChangeEvent<string>) => {
     setExpCouponValue(event.target.value);
   };
   const handleMvpCouponValueChange = (event: SelectChangeEvent) => {
@@ -106,58 +107,97 @@ const ExpSetting = () => {
   };
 
   return (
-    <Box>
-      <ExpCoupon
+    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+      <ExpSelectSection
+        src=""
         value={expCouponValue}
         handleChange={handleExpCouponValueChange}
+        Component={ExpCoupon}
       />
-      <MvpCoupon
+      <ExpSelectSection
+        src=""
         value={mvpCouponValue}
         handleChange={handleMvpCouponValueChange}
+        Component={MvpCoupon}
       />
-      <AccumulationPotion
+      <ExpSelectSection
+        src=""
         value={accumulationPotion}
         handleChange={handleAccumulationPotionValueChange}
+        Component={AccumulationPotion}
       />
-      <ExtremeGoldPotion
+      <ExpSelectSection
+        src=""
         value={extremeGoldPotion}
         handleChange={handleExtremeGoldPotionValueChange}
+        Component={ExtremeGoldPotion}
       />
-      <SpiritPendant
+      <ExpSelectSection
+        src=""
         value={spiritPendant}
         handleChange={handleSpiritPendantValueChange}
+        Component={SpiritPendant}
       />
-      <BoostRing value={boostRing} handleChange={handleBoostRingValueChange} />
-
-      <ElvenBlessing
+      <ExpSelectSection
+        src=""
+        value={boostRing}
+        handleChange={handleBoostRingValueChange}
+        Component={BoostRing}
+      />
+      <ExpSelectSection
+        src=""
         value={elvenBlessing}
         handleChange={handleElvenBlessingValueChange}
+        Component={ElvenBlessing}
       />
-
-      <KinshipRing
+      <ExpSelectSection
+        src=""
         value={kinshipRing}
         handleChange={handleKinshipRingValueChange}
+        Component={KinshipRing}
       />
-
-      <ZeroUnion value={zeroUnion} handleChange={handleZeroUnionValueChange} />
-
-      <LoadedDice value={loadedDice} handleChange={handleLoadedDiceChange} />
-
-      <PremiumPCroom
+      <ExpSelectSection
+        src=""
+        value={zeroUnion}
+        handleChange={handleZeroUnionValueChange}
+        Component={ZeroUnion}
+      />
+      <ExpSelectSection
+        src=""
+        value={loadedDice}
+        handleChange={handleLoadedDiceChange}
+        Component={LoadedDice}
+      />
+      <ExpSelectSection
+        src=""
         value={premiumPCroom}
         handleChange={handlePremiumPCroomChange}
+        Component={PremiumPCroom}
       />
-
-      <HolySymbol value={holySymbol} handleChange={handleHolySymbolChange} />
-
-      <HyperStats value={hyperStats} handleChange={handleHyperStatsChange} />
-
-      <UnionPlacement
+      <ExpInputSection
+        src=""
+        value={holySymbol}
+        handleChange={handleHolySymbolChange}
+        Component={HolySymbol}
+      />
+      <ExpInputSection
+        src=""
+        value={hyperStats}
+        handleChange={handleHyperStatsChange}
+        Component={HyperStats}
+      />
+      <ExpInputSection
+        src=""
         value={unionPlacement}
         handleChange={handleUnionPlacementChange}
+        Component={UnionPlacement}
       />
-
-      <ExpEtc value={expEtc} handleChange={handleExpEtcChange} />
+      <ExpInputSection
+        src=""
+        value={expEtc}
+        handleChange={handleExpEtcChange}
+        Component={ExpEtc}
+      />
     </Box>
   );
 };
