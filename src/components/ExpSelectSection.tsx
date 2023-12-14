@@ -2,7 +2,7 @@ import { Box, FormControl, SelectChangeEvent } from '@mui/material';
 import ExpImage from './ui/ExpImage';
 
 type ExpSelectSectionType = {
-  src: string;
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent<string>) => void;
   Component: React.ComponentType<{
@@ -12,15 +12,15 @@ type ExpSelectSectionType = {
 };
 
 const ExpSelectSection = ({
-  src,
+  name,
   value,
   handleChange,
   Component,
 }: ExpSelectSectionType) => (
   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-    <ExpImage src={src} />
+    <ExpImage src={name} />
     <FormControl variant="standard" sx={{ m: 1, minWidth: 160 }}>
-      <Component value={value} handleChange={handleChange} />
+      <Component name={name} value={value} handleChange={handleChange} />
     </FormControl>
   </Box>
 );
