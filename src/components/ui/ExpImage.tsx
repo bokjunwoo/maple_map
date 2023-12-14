@@ -5,7 +5,7 @@ type ExpImageType = {
 };
 
 const ExpImage = ({ src }: ExpImageType) => {
-  return <Avatar variant="rounded" src={src} />;
+  return <Avatar variant="rounded" src={`./images/${src}`} />;
 };
 
 export default ExpImage;
