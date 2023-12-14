@@ -109,91 +109,91 @@ const ExpSetting = () => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <ExpSelectSection
-        src=""
+        name=""
         value={expCouponValue}
         handleChange={handleExpCouponValueChange}
         Component={ExpCoupon}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={mvpCouponValue}
         handleChange={handleMvpCouponValueChange}
         Component={MvpCoupon}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={accumulationPotion}
         handleChange={handleAccumulationPotionValueChange}
         Component={AccumulationPotion}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={extremeGoldPotion}
         handleChange={handleExtremeGoldPotionValueChange}
         Component={ExtremeGoldPotion}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={spiritPendant}
         handleChange={handleSpiritPendantValueChange}
         Component={SpiritPendant}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={boostRing}
         handleChange={handleBoostRingValueChange}
         Component={BoostRing}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={elvenBlessing}
         handleChange={handleElvenBlessingValueChange}
         Component={ElvenBlessing}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={kinshipRing}
         handleChange={handleKinshipRingValueChange}
         Component={KinshipRing}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={zeroUnion}
         handleChange={handleZeroUnionValueChange}
         Component={ZeroUnion}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={loadedDice}
         handleChange={handleLoadedDiceChange}
         Component={LoadedDice}
       />
       <ExpSelectSection
-        src=""
+        name=""
         value={premiumPCroom}
         handleChange={handlePremiumPCroomChange}
         Component={PremiumPCroom}
       />
       <ExpInputSection
-        src=""
+        name=""
         value={holySymbol}
         handleChange={handleHolySymbolChange}
         Component={HolySymbol}
       />
       <ExpInputSection
-        src=""
+        name=""
         value={hyperStats}
         handleChange={handleHyperStatsChange}
         Component={HyperStats}
       />
       <ExpInputSection
-        src=""
+        name=""
         value={unionPlacement}
         handleChange={handleUnionPlacementChange}
         Component={UnionPlacement}
       />
       <ExpInputSection
-        src=""
+        name=""
         value={expEtc}
         handleChange={handleExpEtcChange}
         Component={ExpEtc}
