@@ -6,6 +6,7 @@ type ExpSelectSectionType = {
   value: string;
   handleChange: (event: SelectChangeEvent<string>) => void;
   Component: React.ComponentType<{
+    name: string;
     value: string;
     handleChange: (event: SelectChangeEvent<string>) => void;
   }>;

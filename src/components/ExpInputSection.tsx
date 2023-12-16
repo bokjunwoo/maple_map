@@ -6,6 +6,7 @@ type ExpInputSectionType = {
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   Component: React.ComponentType<{
+    name: string;
     value: string;
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }>;
