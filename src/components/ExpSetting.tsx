@@ -109,91 +109,91 @@ const ExpSetting = () => {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <ExpSelectSection
-        name=""
+        name="exp-coupon"
         value={expCouponValue}
         handleChange={handleExpCouponValueChange}
         Component={ExpCoupon}
       />
       <ExpSelectSection
-        name=""
+        name="mvp-coupon"
         value={mvpCouponValue}
         handleChange={handleMvpCouponValueChange}
         Component={MvpCoupon}
       />
       <ExpSelectSection
-        name=""
+        name="accumulation-potion"
         value={accumulationPotion}
         handleChange={handleAccumulationPotionValueChange}
         Component={AccumulationPotion}
       />
       <ExpSelectSection
-        name=""
+        name="extreme-gold-potion"
         value={extremeGoldPotion}
         handleChange={handleExtremeGoldPotionValueChange}
         Component={ExtremeGoldPotion}
       />
       <ExpSelectSection
-        name=""
+        name="spirit-pendant"
         value={spiritPendant}
         handleChange={handleSpiritPendantValueChange}
         Component={SpiritPendant}
       />
       <ExpSelectSection
-        name=""
+        name="boost-ring"
         value={boostRing}
         handleChange={handleBoostRingValueChange}
         Component={BoostRing}
       />
       <ExpSelectSection
-        name=""
+        name="elven-blessing"
         value={elvenBlessing}
         handleChange={handleElvenBlessingValueChange}
         Component={ElvenBlessing}
       />
       <ExpSelectSection
-        name=""
+        name="kinship-ring"
         value={kinshipRing}
         handleChange={handleKinshipRingValueChange}
         Component={KinshipRing}
       />
       <ExpSelectSection
-        name=""
+        name="zero-union"
         value={zeroUnion}
         handleChange={handleZeroUnionValueChange}
         Component={ZeroUnion}
       />
       <ExpSelectSection
-        name=""
+        name="loaded-dice"
         value={loadedDice}
         handleChange={handleLoadedDiceChange}
         Component={LoadedDice}
       />
       <ExpSelectSection
-        name=""
+        name="premium-PC-room"
         value={premiumPCroom}
         handleChange={handlePremiumPCroomChange}
         Component={PremiumPCroom}
       />
       <ExpInputSection
-        name=""
+        name="holy-symbol"
         value={holySymbol}
         handleChange={handleHolySymbolChange}
         Component={HolySymbol}
       />
       <ExpInputSection
-        name=""
+        name="hyper-stats"
         value={hyperStats}
         handleChange={handleHyperStatsChange}
         Component={HyperStats}
       />
       <ExpInputSection
-        name=""
+        name="union-placement"
         value={unionPlacement}
         handleChange={handleUnionPlacementChange}
         Component={UnionPlacement}
       />
       <ExpInputSection
-        name=""
+        name="exp-etc"
         value={expEtc}
         handleChange={handleExpEtcChange}
         Component={ExpEtc}
