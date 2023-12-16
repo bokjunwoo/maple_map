@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type MvpCouponType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const MvpCoupon = ({ value, handleChange }: MvpCouponType) => {
+const MvpCoupon = ({ name, value, handleChange }: MvpCouponType) => {
   return (
     <>
-      <InputLabel id="mvp-coupon">뿌리기 / MVP 쿠폰</InputLabel>
+      <InputLabel id={name}>뿌리기 / MVP 쿠폰</InputLabel>
       <Select
-        labelId="mvp-coupon"
-        id="mvp-coupon"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="뿌리기 / MVP 쿠폰"

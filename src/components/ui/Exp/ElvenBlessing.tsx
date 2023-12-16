@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ElvenBlessingType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const ElvenBlessing = ({ value, handleChange }: ElvenBlessingType) => {
+const ElvenBlessing = ({ name, value, handleChange }: ElvenBlessingType) => {
   return (
     <>
-      <InputLabel id="elven-blessing">엘프의 축복</InputLabel>
+      <InputLabel id={name}>엘프의 축복</InputLabel>
       <Select
-        labelId="elven-blessing"
-        id="elven-blessing"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="엘프의 축복"

@@ -1,16 +1,17 @@
 import { Input, InputAdornment, InputLabel } from '@mui/material';
 
 type HolySymbolType = {
+  name: string;
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const HolySymbol = ({ value, handleChange }: HolySymbolType) => {
+const HolySymbol = ({ name, value, handleChange }: HolySymbolType) => {
   return (
     <>
-      <InputLabel htmlFor="holy-symbol">홀리심볼</InputLabel>
+      <InputLabel htmlFor={name}>홀리심볼</InputLabel>
       <Input
-        id="holy-symbol"
+        id={name}
         endAdornment={
           <InputAdornment position="end" sx={{ mr: 0.7 }}>
             %

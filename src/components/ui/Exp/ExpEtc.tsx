@@ -1,16 +1,17 @@
 import { InputAdornment, Input, InputLabel } from '@mui/material';
 
 type ExpEtcType = {
+  name: string;
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const ExpEtc = ({ value, handleChange }: ExpEtcType) => {
+const ExpEtc = ({ name, value, handleChange }: ExpEtcType) => {
   return (
     <>
-      <InputLabel htmlFor="exp-etc">기타 경험치</InputLabel>
+      <InputLabel htmlFor={name}>기타 경험치</InputLabel>
       <Input
-        id="exp-etc"
+        id={name}
         endAdornment={
           <InputAdornment position="end" sx={{ mr: 0.7 }}>
             %

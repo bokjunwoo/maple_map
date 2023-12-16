@@ -1,16 +1,17 @@
 import { Input, InputAdornment, InputLabel } from '@mui/material';
 
 type UnionPlacementType = {
+  name: string;
   value: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const UnionPlacement = ({ value, handleChange }: UnionPlacementType) => {
+const UnionPlacement = ({ name, value, handleChange }: UnionPlacementType) => {
   return (
     <>
-      <InputLabel htmlFor="union-placement">유니온 배치</InputLabel>
+      <InputLabel htmlFor={name}>유니온 배치</InputLabel>
       <Input
-        id="union-placement"
+        id={name}
         endAdornment={
           <InputAdornment position="end" sx={{ mr: 0.7 }}>
             %

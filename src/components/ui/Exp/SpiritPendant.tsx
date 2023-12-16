@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type SpiritPendantType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const SpiritPendant = ({ value, handleChange }: SpiritPendantType) => {
+const SpiritPendant = ({ name, value, handleChange }: SpiritPendantType) => {
   return (
     <>
-      <InputLabel id="spirit-pendant">정령의 펜던트</InputLabel>
+      <InputLabel id={name}>정령의 펜던트</InputLabel>
       <Select
-        labelId="spirit-pendant"
-        id="spirit-pendant"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="정령의 펜던트"

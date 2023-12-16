@@ -1,20 +1,22 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type AccumulationPotionType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
 const AccumulationPotion = ({
+  name,
   value,
   handleChange,
 }: AccumulationPotionType) => {
   return (
     <>
-      <InputLabel id="accumulation-potion">경험 축적의 비약</InputLabel>
+      <InputLabel id={name}>경험 축적의 비약</InputLabel>
       <Select
-        labelId="accumulation-potion"
-        id="accumulation-potion"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="경험 축적의 비약"

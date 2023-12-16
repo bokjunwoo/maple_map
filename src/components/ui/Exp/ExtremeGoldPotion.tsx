@@ -1,17 +1,22 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ExtremeGoldPotionType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const ExtremeGoldPotion = ({ value, handleChange }: ExtremeGoldPotionType) => {
+const ExtremeGoldPotion = ({
+  name,
+  value,
+  handleChange,
+}: ExtremeGoldPotionType) => {
   return (
     <>
-      <InputLabel id="extreme-gold-potion">익스트림 골드(몬파)</InputLabel>
+      <InputLabel id={name}>익스트림 골드(몬파)</InputLabel>
       <Select
-        labelId="extreme-gold-potion"
-        id="extreme-gold-potion"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="익스트림 골드(몬파)"

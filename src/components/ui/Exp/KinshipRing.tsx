@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type KinshipRingType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const KinshipRing = ({ value, handleChange }: KinshipRingType) => {
+const KinshipRing = ({ name, value, handleChange }: KinshipRingType) => {
   return (
     <>
-      <InputLabel id="kinship-ring">혈맹의 반지</InputLabel>
+      <InputLabel id={name}>혈맹의 반지</InputLabel>
       <Select
-        labelId="kinship-ring"
-        id="kinship-ring"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="혈맹의 반지"

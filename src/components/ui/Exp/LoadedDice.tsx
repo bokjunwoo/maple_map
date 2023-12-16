@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type LoadedDiceType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const LoadedDice = ({ value, handleChange }: LoadedDiceType) => {
+const LoadedDice = ({ name, value, handleChange }: LoadedDiceType) => {
   return (
     <>
-      <InputLabel id="loaded-dice">로디드 다이스</InputLabel>
+      <InputLabel id={name}>로디드 다이스</InputLabel>
       <Select
-        labelId="loaded-dice"
-        id="loaded-dice"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="로디드 다이스"

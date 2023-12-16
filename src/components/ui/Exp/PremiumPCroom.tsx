@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type PremiumPCroomType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const PremiumPCroom = ({ value, handleChange }: PremiumPCroomType) => {
+const PremiumPCroom = ({ name, value, handleChange }: PremiumPCroomType) => {
   return (
     <>
-      <InputLabel id="premium-PC-room">프리미엄 PC방</InputLabel>
+      <InputLabel id={name}>프리미엄 PC방</InputLabel>
       <Select
-        labelId="premium-PC-room"
-        id="premium-PC-room"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="프리미엄 PC방"

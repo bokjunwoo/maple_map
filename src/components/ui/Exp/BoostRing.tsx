@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type BoostRingType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const BoostRing = ({ value, handleChange }: BoostRingType) => {
+const BoostRing = ({ name, value, handleChange }: BoostRingType) => {
   return (
     <>
-      <InputLabel id="exp-boost-ring">경험치 부스트 링</InputLabel>
+      <InputLabel id={name}>경험치 부스트 링</InputLabel>
       <Select
-        labelId="exp-boost-ring"
-        id="exp-boost-ring"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="경험치 부스트 링"

@@ -1,17 +1,18 @@
 import { Select, MenuItem, SelectChangeEvent, InputLabel } from '@mui/material';
 
 type ZeroUnionType = {
+  name: string;
   value: string;
   handleChange: (event: SelectChangeEvent) => void;
 };
 
-const ZeroUnion = ({ value, handleChange }: ZeroUnionType) => {
+const ZeroUnion = ({ name, value, handleChange }: ZeroUnionType) => {
   return (
     <>
-      <InputLabel id="zero-union">제로 유니온 공격대원</InputLabel>
+      <InputLabel id={name}>제로 유니온 공격대원</InputLabel>
       <Select
-        labelId="zero-union"
-        id="zero-union"
+        labelId={name}
+        id={name}
         value={value}
         onChange={handleChange}
         label="제로 유니온 공격대원"
