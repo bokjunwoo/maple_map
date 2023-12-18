@@ -1,4 +1,4 @@
-import { Box, SelectChangeEvent } from '@mui/material';
+import { Box, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
 import { numberAndDotRegex } from '../util/util';
 import ExpCoupon from './ui/Exp/ExpCoupon';
@@ -107,98 +107,162 @@ const ExpSetting = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      <ExpSelectSection
-        name="exp-coupon"
-        value={expCouponValue}
-        handleChange={handleExpCouponValueChange}
-        Component={ExpCoupon}
-      />
-      <ExpSelectSection
-        name="mvp-coupon"
-        value={mvpCouponValue}
-        handleChange={handleMvpCouponValueChange}
-        Component={MvpCoupon}
-      />
-      <ExpSelectSection
-        name="accumulation-potion"
-        value={accumulationPotion}
-        handleChange={handleAccumulationPotionValueChange}
-        Component={AccumulationPotion}
-      />
-      <ExpSelectSection
-        name="extreme-gold-potion"
-        value={extremeGoldPotion}
-        handleChange={handleExtremeGoldPotionValueChange}
-        Component={ExtremeGoldPotion}
-      />
-      <ExpSelectSection
-        name="spirit-pendant"
-        value={spiritPendant}
-        handleChange={handleSpiritPendantValueChange}
-        Component={SpiritPendant}
-      />
-      <ExpSelectSection
-        name="boost-ring"
-        value={boostRing}
-        handleChange={handleBoostRingValueChange}
-        Component={BoostRing}
-      />
-      <ExpSelectSection
-        name="elven-blessing"
-        value={elvenBlessing}
-        handleChange={handleElvenBlessingValueChange}
-        Component={ElvenBlessing}
-      />
-      <ExpSelectSection
-        name="kinship-ring"
-        value={kinshipRing}
-        handleChange={handleKinshipRingValueChange}
-        Component={KinshipRing}
-      />
-      <ExpSelectSection
-        name="zero-union"
-        value={zeroUnion}
-        handleChange={handleZeroUnionValueChange}
-        Component={ZeroUnion}
-      />
-      <ExpSelectSection
-        name="loaded-dice"
-        value={loadedDice}
-        handleChange={handleLoadedDiceChange}
-        Component={LoadedDice}
-      />
-      <ExpSelectSection
-        name="premium-PC-room"
-        value={premiumPCroom}
-        handleChange={handlePremiumPCroomChange}
-        Component={PremiumPCroom}
-      />
-      <ExpInputSection
-        name="holy-symbol"
-        value={holySymbol}
-        handleChange={handleHolySymbolChange}
-        Component={HolySymbol}
-      />
-      <ExpInputSection
-        name="hyper-stats"
-        value={hyperStats}
-        handleChange={handleHyperStatsChange}
-        Component={HyperStats}
-      />
-      <ExpInputSection
-        name="union-placement"
-        value={unionPlacement}
-        handleChange={handleUnionPlacementChange}
-        Component={UnionPlacement}
-      />
-      <ExpInputSection
-        name="exp-etc"
-        value={expEtc}
-        handleChange={handleExpEtcChange}
-        Component={ExpEtc}
-      />
-    </Box>
+    <>
+      <Box>
+        <Typography
+          sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+          variant="h5"
+          component="div"
+        >
+          경험치 버프
+        </Typography>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <ExpSelectSection
+            name="exp-coupon"
+            value={expCouponValue}
+            handleChange={handleExpCouponValueChange}
+            Component={ExpCoupon}
+          />
+          <ExpSelectSection
+            name="mvp-coupon"
+            value={mvpCouponValue}
+            handleChange={handleMvpCouponValueChange}
+            Component={MvpCoupon}
+          />
+          <ExpSelectSection
+            name="accumulation-potion"
+            value={accumulationPotion}
+            handleChange={handleAccumulationPotionValueChange}
+            Component={AccumulationPotion}
+          />
+          <ExpSelectSection
+            name="extreme-gold-potion"
+            value={extremeGoldPotion}
+            handleChange={handleExtremeGoldPotionValueChange}
+            Component={ExtremeGoldPotion}
+          />
+        </Box>
+      </Box>
+
+      <Box>
+        <Typography
+          sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+          variant="h5"
+          component="div"
+        >
+          착용 아이템
+        </Typography>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <ExpSelectSection
+            name="spirit-pendant"
+            value={spiritPendant}
+            handleChange={handleSpiritPendantValueChange}
+            Component={SpiritPendant}
+          />
+          <ExpSelectSection
+            name="boost-ring"
+            value={boostRing}
+            handleChange={handleBoostRingValueChange}
+            Component={BoostRing}
+          />
+          <ExpSelectSection
+            name="kinship-ring"
+            value={kinshipRing}
+            handleChange={handleKinshipRingValueChange}
+            Component={KinshipRing}
+          />
+        </Box>
+      </Box>
+
+      <Box>
+        <Typography
+          sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+          variant="h5"
+          component="div"
+        >
+          링크&유니온&스탯
+        </Typography>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <ExpSelectSection
+            name="elven-blessing"
+            value={elvenBlessing}
+            handleChange={handleElvenBlessingValueChange}
+            Component={ElvenBlessing}
+          />
+          <ExpSelectSection
+            name="zero-union"
+            value={zeroUnion}
+            handleChange={handleZeroUnionValueChange}
+            Component={ZeroUnion}
+          />
+          <ExpInputSection
+            name="union-placement"
+            value={unionPlacement}
+            handleChange={handleUnionPlacementChange}
+            Component={UnionPlacement}
+          />
+          <ExpInputSection
+            name="hyper-stats"
+            value={hyperStats}
+            handleChange={handleHyperStatsChange}
+            Component={HyperStats}
+          />
+        </Box>
+      </Box>
+
+      <Box>
+        <Typography
+          sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+          variant="h5"
+          component="div"
+        >
+          스킬 관련
+        </Typography>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <ExpSelectSection
+            name="loaded-dice"
+            value={loadedDice}
+            handleChange={handleLoadedDiceChange}
+            Component={LoadedDice}
+          />
+          <ExpInputSection
+            name="holy-symbol"
+            value={holySymbol}
+            handleChange={handleHolySymbolChange}
+            Component={HolySymbol}
+          />
+        </Box>
+      </Box>
+
+      <Box>
+        <Typography
+          sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+          variant="h5"
+          component="div"
+        >
+          기타
+        </Typography>
+
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <ExpSelectSection
+            name="premium-PC-room"
+            value={premiumPCroom}
+            handleChange={handlePremiumPCroomChange}
+            Component={PremiumPCroom}
+          />
+
+          <ExpInputSection
+            name="exp-etc"
+            value={expEtc}
+            handleChange={handleExpEtcChange}
+            Component={ExpEtc}
+          />
+        </Box>
+      </Box>
+    </>
   );
 };
 
