@@ -7,6 +7,8 @@ const FooterUI = () => {
         color: '#424242',
         padding: 3,
         textAlign: 'center',
+        bgcolor: 'white',
+        mt: 3,
       }}
     >
       <Typography variant="body2">
