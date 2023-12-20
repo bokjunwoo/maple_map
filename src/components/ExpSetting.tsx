@@ -20,6 +20,7 @@ import ExpSelectSection from './ExpSelectSection';
 import ExpInputSection from './ExpInputSection';
 
 const ExpSetting = () => {
+  const [expIncrease, setExpIncrease] = useState(100);
   const [expCouponValue, setExpCouponValue] = useState('');
   const [mvpCouponValue, setMvpCouponValue] = useState('');
   const [accumulationPotion, setAccumulationPotionValue] = useState('');
@@ -37,11 +38,23 @@ const ExpSetting = () => {
   const [expEtc, setExpEtcValue] = useState('');
 
   const handleExpCouponValueChange = (event: SelectChangeEvent<string>) => {
+    if (expCouponValue !== event.target.value) {
+      setExpIncrease(
+        expIncrease - Number(expCouponValue) + Number(event.target.value)
+      );
+    }
     setExpCouponValue(event.target.value);
   };
+
   const handleMvpCouponValueChange = (event: SelectChangeEvent) => {
+    if (mvpCouponValue !== event.target.value) {
+      setExpIncrease(
+        expIncrease - Number(mvpCouponValue) + Number(event.target.value)
+      );
+    }
     setMvpCouponValue(event.target.value);
   };
+
   const handleAccumulationPotionValueChange = (event: SelectChangeEvent) => {
     setAccumulationPotionValue(event.target.value);
   };
@@ -260,6 +273,16 @@ const ExpSetting = () => {
             handleChange={handleExpEtcChange}
             Component={ExpEtc}
           />
+        </Box>
+
+        <Box>
+          <Typography
+            sx={{ mt: 2, mb: 1, fontWeight: 500 }}
+            variant="h5"
+            component="div"
+          >
+            총경험치 증가량 {expIncrease}%
+          </Typography>
         </Box>
       </Box>
     </>
