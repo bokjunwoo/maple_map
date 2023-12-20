@@ -2,7 +2,7 @@ import { HandleCouponValueChangeParams } from './Tutils';
 
 export const numberAndDotRegex = /^\d*(\.\d{0,2})?$/;
 
-export const handleSelectCouponValueChange = ({
+export const handleSelectValueChange = ({
   event,
   currentValue,
   setExpIncrease,
