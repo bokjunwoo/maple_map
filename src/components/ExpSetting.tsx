@@ -1,6 +1,6 @@
 import { Box, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
-import { numberAndDotRegex } from '../util/util';
+import { handleSelectValueChange, numberAndDotRegex } from '../util/utils';
 import ExpCoupon from './ui/Exp/ExpCoupon';
 import MvpCoupon from './ui/Exp/MvpCoupon';
 import AccumulationPotion from './ui/Exp/AccumulationPotion';
@@ -37,51 +37,109 @@ const ExpSetting = () => {
   const [unionPlacement, setUnionPlacementValue] = useState('');
   const [expEtc, setExpEtcValue] = useState('');
 
-  const handleExpCouponValueChange = (event: SelectChangeEvent<string>) => {
-    if (expCouponValue !== event.target.value) {
-      setExpIncrease(
-        expIncrease - Number(expCouponValue) + Number(event.target.value)
-      );
-    }
-    setExpCouponValue(event.target.value);
+  const handleExpCouponValueChange = (
+    event: SelectChangeEvent<string>
+  ): void => {
+    handleSelectValueChange({
+      event,
+      currentValue: Number(expCouponValue),
+      setExpIncrease,
+      setValue: setExpCouponValue,
+    });
   };
 
-  const handleMvpCouponValueChange = (event: SelectChangeEvent) => {
-    if (mvpCouponValue !== event.target.value) {
-      setExpIncrease(
-        expIncrease - Number(mvpCouponValue) + Number(event.target.value)
-      );
-    }
-    setMvpCouponValue(event.target.value);
+  const handleMvpCouponValueChange = (
+    event: SelectChangeEvent<string>
+  ): void => {
+    handleSelectValueChange({
+      event,
+      currentValue: Number(mvpCouponValue),
+      setExpIncrease,
+      setValue: setMvpCouponValue,
+    });
   };
 
   const handleAccumulationPotionValueChange = (event: SelectChangeEvent) => {
-    setAccumulationPotionValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(accumulationPotion),
+      setExpIncrease,
+      setValue: setAccumulationPotionValue,
+    });
   };
+
   const handleExtremeGoldPotionValueChange = (event: SelectChangeEvent) => {
-    setExtremeGoldPotionValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(extremeGoldPotion),
+      setExpIncrease,
+      setValue: setExtremeGoldPotionValue,
+    });
   };
+
   const handleSpiritPendantValueChange = (event: SelectChangeEvent) => {
-    setSpiritPendantValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(spiritPendant),
+      setExpIncrease,
+      setValue: setSpiritPendantValue,
+    });
   };
+
   const handleBoostRingValueChange = (event: SelectChangeEvent) => {
-    setBoostRingValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(boostRing),
+      setExpIncrease,
+      setValue: setBoostRingValue,
+    });
   };
+
   const handleElvenBlessingValueChange = (event: SelectChangeEvent) => {
-    setElvenBlessingValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(elvenBlessing),
+      setExpIncrease,
+      setValue: setElvenBlessingValue,
+    });
   };
+
   const handleKinshipRingValueChange = (event: SelectChangeEvent) => {
-    setKinshipRingValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(kinshipRing),
+      setExpIncrease,
+      setValue: setKinshipRingValue,
+    });
   };
+
   const handleZeroUnionValueChange = (event: SelectChangeEvent) => {
-    setZeroUnionValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(zeroUnion),
+      setExpIncrease,
+      setValue: setZeroUnionValue,
+    });
   };
+
   const handleLoadedDiceChange = (event: SelectChangeEvent) => {
-    setLoadedDiceValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(loadedDice),
+      setExpIncrease,
+      setValue: setLoadedDiceValue,
+    });
   };
+
   const handlePremiumPCroomChange = (event: SelectChangeEvent) => {
-    setPremiumPCroomValue(event.target.value);
+    handleSelectValueChange({
+      event,
+      currentValue: Number(premiumPCroom),
+      setExpIncrease,
+      setValue: setPremiumPCroomValue,
+    });
   };
+
   const handleHolySymbolChange = (event: SelectChangeEvent) => {
     setHolySymbolValue(event.target.value);
   };
