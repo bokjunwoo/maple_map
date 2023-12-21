@@ -17,9 +17,9 @@ const ExpCoupon = ({ value, handleChange }: ExpCouponType) => {
         label="경험치 쿠폰"
       >
         <MenuItem value={0}>없음</MenuItem>
-        <MenuItem value={150}>1.5배 쿠폰 (150%)</MenuItem>
-        <MenuItem value={200}>2배 쿠폰 (200%)</MenuItem>
-        <MenuItem value={300}>3배 쿠폰 (300%)</MenuItem>
+        <MenuItem value={50}>1.5배 쿠폰 (150%)</MenuItem>
+        <MenuItem value={100}>2배 쿠폰 (200%)</MenuItem>
+        <MenuItem value={200}>3배 쿠폰 (300%)</MenuItem>
       </Select>
     </>
   );
