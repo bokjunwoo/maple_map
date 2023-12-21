@@ -18,7 +18,7 @@ const BoostRing = ({ name, value, handleChange }: BoostRingType) => {
         label="경험치 부스트 링"
       >
         <MenuItem value={0}>없음</MenuItem>
-        <MenuItem value={10}>착용 (15%)</MenuItem>
+        <MenuItem value={15}>착용 (15%)</MenuItem>
       </Select>
     </>
   );
