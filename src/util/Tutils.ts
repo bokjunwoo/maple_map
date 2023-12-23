@@ -6,3 +6,10 @@ export type HandleCouponValueSelectChangeParams = {
   setExpIncrease: React.Dispatch<React.SetStateAction<number>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;
 };
+
+export type HandleCouponValueInputChangeParams = {
+  event: React.ChangeEvent<HTMLInputElement>;
+  currentValue: number;
+  setExpIncrease: React.Dispatch<React.SetStateAction<number>>;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+};
