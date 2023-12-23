@@ -1,4 +1,4 @@
-import { HandleCouponValueChangeParams } from './Tutils';
+import { HandleCouponValueSelectChangeParams } from './Tutils';
 
 export const numberAndDotRegex = /^\d*(\.\d{0,2})?$/;
 
@@ -7,7 +7,7 @@ export const handleSelectValueChange = ({
   currentValue,
   setExpIncrease,
   setValue,
-}: HandleCouponValueChangeParams): void => {
+}: HandleCouponValueSelectChangeParams): void => {
   const updatedValue = Number(event.target.value);
 
   if (currentValue !== updatedValue) {
