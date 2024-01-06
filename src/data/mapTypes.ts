@@ -1,4 +1,4 @@
-type MapType = {
+export type MapType = {
   id: number;
   map_name: string;
   monster: string;
