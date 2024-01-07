@@ -1,4 +1,15 @@
-import { AraneRiverMapDataType, GrandisMapDataType } from './mapTypes';
+import {
+  AraneRiverMapDataType,
+  GrandisMapDataType,
+  HeadCell,
+} from './mapTypes';
+
+export const headCells: HeadCell[] = [
+  { id: 'map_name', label: '맵이름', disableSorting: true },
+  { id: 'monster', label: '몬스터', disableSorting: true },
+  { id: 'number_of_monster', label: '몬스터 젠수' },
+  { id: 'monster_experience', label: '몬스터 경험치' },
+];
 
 export const AraneRiverMapData: AraneRiverMapDataType = {
   소멸의여로: [
@@ -7,14 +18,14 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       map_name: '임시1',
       monster: '임시1',
       number_of_monster: 11,
-      monster_experience: 110,
+      monster_experience: 180,
     },
     {
       id: 2,
       map_name: '임시2',
       monster: '임시2',
       number_of_monster: 12,
-      monster_experience: 120,
+      monster_experience: 160,
     },
     {
       id: 3,

@@ -30,3 +30,9 @@ export type GrandisMapDataType = {
   아르테리아: MapType[];
   카르시온: MapType[];
 };
+
+export type HeadCell = {
+  id: keyof MapType;
+  label: string;
+  disableSorting?: boolean;
+};
