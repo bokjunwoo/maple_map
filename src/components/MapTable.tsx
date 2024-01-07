@@ -1,33 +1,45 @@
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { AraneRiverMapData } from '../data/mapDatas';
+import { AraneRiverMapData, headCells } from '../data/mapDatas';
 import TableSortHead from './Table/TableSortHead';
+import { MapType } from '../data/mapTypes';
+import { useState } from 'react';
+import TableSortBody from './Table/TableSortBody';
 
 export default function MapTable() {
+  const [orderBy, setOrderBy] = useState<keyof MapType>('id');
+  const [order, setOrder] = useState<'asc' | 'desc'>('desc');
+
+  const handleSortRequest = (property: keyof MapType) => {
+    if (headCells.find((cell) => cell.id === property && cell.disableSorting)) {
+      return;
+    }
+
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+
+  const sortedData = AraneRiverMapData.소멸의여로.slice().sort((a, b) => {
+    const aValue = a[orderBy];
+    const bValue = b[orderBy];
+    if (order === 'desc') {
+      return aValue < bValue ? -1 : 1;
+    } else {
+      return bValue < aValue ? -1 : 1;
+    }
+  });
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableSortHead />
-        <TableBody>
-          {AraneRiverMapData.소멸의여로.map((row) => (
-            <TableRow
-              hover
-              key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.map_name}
-              </TableCell>
-              <TableCell align="center">{row.monster}</TableCell>
-              <TableCell align="center">{row.number_of_monster}</TableCell>
-              <TableCell align="center">{row.monster_experience}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <TableSortHead
+          orderBy={orderBy}
+          order={order}
+          handleChange={handleSortRequest}
+        />
+        <TableSortBody data={sortedData} />
       </Table>
     </TableContainer>
   );
