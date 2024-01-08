@@ -1,5 +1,5 @@
 import { Box, FormControl, SelectChangeEvent } from '@mui/material';
-import ExpImage from './ui/ExpImage';
+import ExpImage from './UI/Exp/ExpImage';
 
 type ExpSelectSectionType = {
   name: string;
