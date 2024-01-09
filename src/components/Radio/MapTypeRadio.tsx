@@ -4,9 +4,15 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  SelectChangeEvent,
 } from '@mui/material';
 
-const MapTypeRadio = () => {
+type MapTypeRadioType = {
+  mapRegion: '아케인리버' | '그란디스';
+  handleChange: (e: SelectChangeEvent) => void;
+};
+
+const MapTypeRadio = ({ mapRegion, handleChange }: MapTypeRadioType) => {
   return (
     <FormControl>
       <FormLabel id="map_type_radio_label" sx={{ color: 'black' }}>
@@ -16,6 +22,8 @@ const MapTypeRadio = () => {
         row
         aria-labelledby="map_type_radio_label"
         name="map_type_radio_label"
+        onChange={handleChange}
+        defaultValue={mapRegion}
       >
         <FormControlLabel
           value="아케인리버"
