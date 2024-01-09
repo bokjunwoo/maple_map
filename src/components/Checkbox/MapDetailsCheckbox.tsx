@@ -1,10 +1,22 @@
 import { FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 
-const MapDetailsCheckbox = () => {
+type MapDetailsCheckboxType = {
+  mapKeys: string[];
+};
+
+const MapDetailsCheckbox = ({ mapKeys }: MapDetailsCheckboxType) => {
   return (
     <FormGroup row>
-      <FormControlLabel control={<Checkbox />} label="소멸의여로" />
-      <FormControlLabel control={<Checkbox />} label="리버스시티" />
+      {mapKeys.map((map) => {
+        return (
+          <FormControlLabel
+            key={map}
+            control={<Checkbox />}
+            label={map}
+            value={map}
+          />
+        );
+      })}
     </FormGroup>
   );
 };
