@@ -6,6 +6,10 @@ export type MapType = {
   monster_experience: number;
 };
 
+export type MapDataType = {
+  [key: string]: MapType[];
+};
+
 export type AraneRiverMapDataType = {
   소멸의여로: MapType[];
   리버스시티: MapType[];
