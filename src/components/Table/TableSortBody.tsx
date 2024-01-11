@@ -10,7 +10,7 @@ const TableSortBody = ({ data }: TableSortBodyType) => {
   return (
     <TableBody>
       {data.map((row) => (
-        <TableRow key={row.id}>
+        <TableRow key={row.map_name}>
           {headCells.map((headCell) => (
             <TableCell
               key={headCell.id}
