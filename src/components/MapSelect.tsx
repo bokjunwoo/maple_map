@@ -4,7 +4,7 @@ import MapTypeRadio from './Radio/MapTypeRadio';
 import { ChangeEvent, useState } from 'react';
 import { AraneRiverMapData, GrandisMapData } from '../data/mapDatas';
 import MapTable from './MapTable';
-import { MapDataType, MapType } from '../data/mapTypes';
+import { MapDataType } from '../data/mapTypes';
 
 const MapSelect = () => {
   const [mapRegion, setMapRegion] = useState<'아케인리버' | '그란디스'>(
@@ -14,6 +14,7 @@ const MapSelect = () => {
 
   const handleMapRegionSelect = (e: SelectChangeEvent) => {
     setMapRegion(e.target.value as '아케인리버' | '그란디스');
+    setMapDetailsName([]);
   };
   const handleMapDetailNameSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedValue = e.target.value;
