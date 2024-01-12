@@ -23,7 +23,7 @@ const MapTypeRadio = ({ mapRegion, handleChange }: MapTypeRadioType) => {
         aria-labelledby="map_type_radio_label"
         name="map_type_radio_label"
         onChange={handleChange}
-        defaultValue={mapRegion}
+        value={mapRegion}
       >
         <FormControlLabel
           value="아케인리버"
