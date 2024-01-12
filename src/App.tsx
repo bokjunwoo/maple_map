@@ -1,6 +1,5 @@
 import AppLayout from './components/UI/Layout/AppLayout';
 import ExpSetting from './components/ExpSetting';
-import MapTable from './components/MapTable';
 import MapSelect from './components/MapSelect';
 
 const App = () => {
@@ -8,7 +7,6 @@ const App = () => {
     <AppLayout>
       <ExpSetting />
       <MapSelect />
-      <MapTable />
     </AppLayout>
   );
 };
