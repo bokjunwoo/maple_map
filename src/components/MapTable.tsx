@@ -1,13 +1,17 @@
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import { AraneRiverMapData, headCells } from '../data/mapDatas';
+import { headCells } from '../data/mapDatas';
 import TableSortHead from './Table/TableSortHead';
 import { MapType } from '../data/mapTypes';
 import { useState } from 'react';
 import TableSortBody from './Table/TableSortBody';
 
-export default function MapTable() {
+type MapTableType = {
+  data: MapType[];
+};
+
+export default function MapTable({ data }: MapTableType) {
   const [orderBy, setOrderBy] = useState<keyof MapType>('id');
   const [order, setOrder] = useState<'asc' | 'desc'>('desc');
 
@@ -21,7 +25,7 @@ export default function MapTable() {
     setOrderBy(property);
   };
 
-  const sortedData = AraneRiverMapData.소멸의여로.slice().sort((a, b) => {
+  const sortedData = data.slice().sort((a, b) => {
     const aValue = a[orderBy];
     const bValue = b[orderBy];
     if (order === 'desc') {
@@ -39,7 +43,7 @@ export default function MapTable() {
           order={order}
           handleChange={handleSortRequest}
         />
-        <TableSortBody data={sortedData} />
+        <TableSortBody data={order === 'asc' ? sortedData : data} />
       </Table>
     </TableContainer>
   );
