@@ -1,15 +1,18 @@
 import { Avatar, Box, Chip } from '@mui/material';
-import { useState } from 'react';
 
 type CheckboxMapDetailType = {
   name: string;
+  isSelected: boolean;
+  onToggle: (name: string) => void;
 };
 
-const CheckboxMapDetail = ({ name }: CheckboxMapDetailType) => {
-  const [isClicked, setIsClicked] = useState(false);
-
+const CheckboxMapDetail = ({
+  name,
+  isSelected,
+  onToggle,
+}: CheckboxMapDetailType) => {
   const handleClick = () => {
-    setIsClicked((prev) => !prev); // 클릭 여부를 토글
+    onToggle(name);
   };
 
   return (
@@ -18,13 +21,13 @@ const CheckboxMapDetail = ({ name }: CheckboxMapDetailType) => {
         sx={{
           cursor: 'pointer',
           boxSizing: 'border-box',
-          border: isClicked ? '1.5px solid blue' : 'none',
-          color: isClicked ? 'blue' : 'black',
+          border: isSelected ? '1.5px solid blue' : 'none',
+          color: isSelected ? 'blue' : 'black',
           bgcolor: 'skyblue',
         }}
         avatar={<Avatar>M</Avatar>}
         label={name}
-        variant={isClicked ? 'outlined' : 'filled'}
+        variant={isSelected ? 'outlined' : 'filled'}
       />
     </Box>
   );

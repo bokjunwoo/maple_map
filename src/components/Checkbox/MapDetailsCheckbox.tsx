@@ -1,24 +1,26 @@
-import { FormGroup, FormControlLabel, Checkbox } from '@mui/material';
-import { ChangeEvent } from 'react';
+import { FormGroup } from '@mui/material';
+import CheckboxMapDetail from './CheckboxMapDetail';
 
 type MapDetailsCheckboxType = {
   mapKeys: string[];
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  mapDetailsName: string[];
+  handleChange: (selectedValue: string) => void;
 };
 
 const MapDetailsCheckbox = ({
   mapKeys,
+  mapDetailsName,
   handleChange,
 }: MapDetailsCheckboxType) => {
   return (
     <FormGroup row>
       {mapKeys.map((map) => {
         return (
-          <FormControlLabel
+          <CheckboxMapDetail
             key={map}
-            control={<Checkbox onChange={handleChange} />}
-            label={map}
-            value={map}
+            name={map}
+            isSelected={mapDetailsName.includes(map)}
+            onToggle={handleChange}
           />
         );
       })}

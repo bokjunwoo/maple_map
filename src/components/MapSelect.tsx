@@ -1,7 +1,7 @@
 import { Box, SelectChangeEvent } from '@mui/material';
 import MapDetailsCheckbox from './Checkbox/MapDetailsCheckbox';
 import MapTypeRadio from './Radio/MapTypeRadio';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { AraneRiverMapData, GrandisMapData } from '../data/mapDatas';
 import MapTable from './MapTable';
 import { MapDataType } from '../data/mapTypes';
@@ -16,9 +16,7 @@ const MapSelect = () => {
     setMapRegion(e.target.value as '아케인리버' | '그란디스');
     setMapDetailsName([]);
   };
-  const handleMapDetailNameSelect = (e: ChangeEvent<HTMLInputElement>) => {
-    const selectedValue = e.target.value;
-
+  const handleMapDetailNameSelect = (selectedValue: string) => {
     const isSelected = mapDetailsName.includes(selectedValue);
 
     if (isSelected) {
@@ -45,6 +43,7 @@ const MapSelect = () => {
       />
       <MapDetailsCheckbox
         mapKeys={mapKeys}
+        mapDetailsName={mapDetailsName}
         handleChange={handleMapDetailNameSelect}
       />
       <MapTable data={selectMapData} />
