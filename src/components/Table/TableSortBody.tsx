@@ -9,18 +9,26 @@ type TableSortBodyType = {
 const TableSortBody = ({ data }: TableSortBodyType) => {
   return (
     <TableBody>
-      {data.map((row) => (
-        <TableRow key={row.map_name}>
-          {headCells.map((headCell) => (
-            <TableCell
-              key={headCell.id}
-              align={headCell.id !== 'map_name' ? 'center' : 'inherit'}
-            >
-              {row[headCell.id]}
-            </TableCell>
-          ))}
+      {data.length === 0 ? (
+        <TableRow>
+          <TableCell colSpan={1}>
+            <span>선택된 맵 데이터가 없습니다</span>
+          </TableCell>
         </TableRow>
-      ))}
+      ) : (
+        data.map((row) => (
+          <TableRow key={row.map_name}>
+            {headCells.map((headCell) => (
+              <TableCell
+                key={headCell.id}
+                align={headCell.id !== 'map_name' ? 'center' : 'inherit'}
+              >
+                {row[headCell.id]}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))
+      )}
     </TableBody>
   );
 };
