@@ -24,6 +24,8 @@ const CheckboxMapDetail = ({
           border: isSelected ? '1.5px solid blue' : 'none',
           color: isSelected ? 'blue' : 'black',
           bgcolor: 'skyblue',
+          marginRight: 1,
+          marginBottom: 1,
         }}
         avatar={<Avatar>M</Avatar>}
         label={name}
