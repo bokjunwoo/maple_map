@@ -11,7 +11,7 @@ const TableSortBody = ({ data }: TableSortBodyType) => {
     <TableBody>
       {data.length === 0 ? (
         <TableRow>
-          <TableCell colSpan={1}>
+          <TableCell colSpan={6}>
             <span>선택된 맵 데이터가 없습니다</span>
           </TableCell>
         </TableRow>
