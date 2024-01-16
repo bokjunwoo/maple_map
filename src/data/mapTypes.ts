@@ -1,9 +1,12 @@
 export type MapType = {
   id: number;
   map_name: string;
+  symbols: number;
   monster: string;
   number_of_monster: number;
   monster_experience: number;
+  monster_money: number;
+  rune: boolean;
 };
 
 export type MapDataType = {
