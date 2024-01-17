@@ -6,11 +6,12 @@ import {
 
 export const headCells: HeadCell[] = [
   { id: 'map_name', label: '맵이름' },
-  { id: 'symbols', label: '심볼' },
+  { id: 'symbols', label: '심볼', disableSorting: true },
   { id: 'monster', label: '몬스터', disableSorting: true },
   { id: 'number_of_monster', label: '몬스터 젠수' },
   { id: 'monster_money', label: '재화' },
-  { id: 'rune', label: '룬' },
+  { id: 'rune', label: '룬', disableSorting: true },
+  { id: 'burning_field', label: '버닝필드', disableSorting: true },
 ];
 
 export const AraneRiverMapData: AraneRiverMapDataType = {
@@ -24,6 +25,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 180,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 2,
@@ -34,6 +36,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 160,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 3,
@@ -44,6 +47,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 130,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 4,
@@ -54,6 +58,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 140,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 5,
@@ -64,6 +69,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 150,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
   ],
   리버스시티: [
@@ -76,6 +82,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 200,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 2,
@@ -86,6 +93,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 130,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
     {
       id: 3,
@@ -96,6 +104,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_experience: 110,
       monster_money: 1000,
       rune: false,
+      burning_field: 0,
     },
   ],
   츄츄아일랜드: [],

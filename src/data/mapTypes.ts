@@ -7,6 +7,7 @@ export type MapType = {
   monster_experience: number;
   monster_money: number;
   rune: boolean;
+  burning_field: number;
 };
 
 export type MapDataType = {
