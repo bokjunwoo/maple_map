@@ -1,4 +1,10 @@
-import { TableBody, TableRow, TableCell } from '@mui/material';
+import {
+  TableBody,
+  TableRow,
+  TableCell,
+  Switch,
+  TextField,
+} from '@mui/material';
 import { headCells } from '../../data/mapDatas';
 import { MapType } from '../../data/mapTypes';
 
@@ -23,7 +29,28 @@ const TableSortBody = ({ data }: TableSortBodyType) => {
                 key={headCell.id}
                 align={headCell.id !== 'map_name' ? 'center' : 'inherit'}
               >
-                {row[headCell.id]}
+                {headCell.id === 'rune' ? (
+                  <Switch />
+                ) : headCell.id === 'burning_field' ? (
+                  <TextField
+                    type="text"
+                    variant="outlined"
+                    size="small"
+                    value={row.burning_field + 10}
+                    style={{ textAlign: 'center' }}
+                    inputProps={{
+                      sx: {
+                        width: '22px',
+                        height: '22px',
+                        p: 1,
+                        textAlign: 'center',
+                        m: 0,
+                      },
+                    }}
+                  />
+                ) : (
+                  row[headCell.id]
+                )}
               </TableCell>
             ))}
           </TableRow>
