@@ -7,7 +7,7 @@ type ExpTooltipTpye = {
 
 const ExpTooltip = ({ children, Component }: ExpTooltipTpye) => {
   return (
-    <Tooltip title={<Component />} arrow>
+    <Tooltip title={<Component />} placement="right" arrow>
       <Box sx={{ display: 'inline-block' }}>{children}</Box>
     </Tooltip>
   );
