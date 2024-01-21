@@ -4,14 +4,15 @@ import Paper from '@mui/material/Paper';
 import { headCells } from '../data/mapDatas';
 import TableSortHead from './Table/TableSortHead';
 import { MapType } from '../data/mapTypes';
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import TableSortBody from './Table/TableSortBody';
 
 type MapTableType = {
   data: MapType[];
+  onUpdate: (updatedData: SetStateAction<MapType[]>) => void;
 };
 
-export default function MapTable({ data }: MapTableType) {
+const MapTable = ({ data, onUpdate }: MapTableType) => {
   const [orderBy, setOrderBy] = useState<keyof MapType>('id');
   const [order, setOrder] = useState<'asc' | 'desc'>('desc');
 
@@ -43,8 +44,13 @@ export default function MapTable({ data }: MapTableType) {
           order={order}
           handleChange={handleSortRequest}
         />
-        <TableSortBody data={order === 'asc' ? sortedData : data} />
+        <TableSortBody
+          data={order === 'asc' ? sortedData : data}
+          onUpdate={onUpdate}
+        />
       </Table>
     </TableContainer>
   );
-}
+};
+
+export default MapTable;
