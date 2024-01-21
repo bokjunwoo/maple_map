@@ -1,31 +1,37 @@
 import { Box, SelectChangeEvent } from '@mui/material';
 import MapDetailsCheckbox from './Checkbox/MapDetailsCheckbox';
 import MapTypeRadio from './Radio/MapTypeRadio';
-import { useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { AraneRiverMapData, GrandisMapData } from '../data/mapDatas';
 import MapTable from './MapTable';
-import { MapDataType } from '../data/mapTypes';
+import { MapDataType, MapType } from '../data/mapTypes';
 
 const MapSelect = () => {
   const [mapRegion, setMapRegion] = useState<'아케인리버' | '그란디스'>(
     '아케인리버'
   );
   const [mapDetailsName, setMapDetailsName] = useState<string[]>([]);
+  const [selectMapData, setSelectMapData] = useState<MapType[]>([]);
 
   const handleMapRegionSelect = (e: SelectChangeEvent) => {
     setMapRegion(e.target.value as '아케인리버' | '그란디스');
     setMapDetailsName([]);
+    setSelectMapData([]);
   };
+
   const handleMapDetailNameSelect = (selectedValue: string) => {
     const isSelected = mapDetailsName.includes(selectedValue);
+    setMapDetailsName((prevDetailsName) => {
+      if (isSelected) {
+        return prevDetailsName.filter((value) => value !== selectedValue);
+      } else {
+        return [...prevDetailsName, selectedValue];
+      }
+    });
+  };
 
-    if (isSelected) {
-      setMapDetailsName(
-        mapDetailsName.filter((value) => value !== selectedValue)
-      );
-    } else {
-      setMapDetailsName([...mapDetailsName, selectedValue]);
-    }
+  const handleUpdate = (updatedData: SetStateAction<MapType[]>) => {
+    setSelectMapData(updatedData);
   };
 
   const selectedMap: MapDataType =
@@ -33,7 +39,11 @@ const MapSelect = () => {
 
   const mapKeys = Object.keys(selectedMap);
 
-  const selectMapData = mapDetailsName.flatMap((region) => selectedMap[region]);
+  useEffect(() => {
+    setSelectMapData(() =>
+      mapDetailsName.flatMap((region) => selectedMap[region])
+    );
+  }, [mapDetailsName, selectedMap]);
 
   return (
     <Box>
@@ -46,7 +56,7 @@ const MapSelect = () => {
         mapDetailsName={mapDetailsName}
         handleChange={handleMapDetailNameSelect}
       />
-      <MapTable data={selectMapData} />
+      <MapTable data={selectMapData} onUpdate={handleUpdate} />
     </Box>
   );
 };
