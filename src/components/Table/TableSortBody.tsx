@@ -1,8 +1,13 @@
-import { TableBody, TableRow, TableCell } from '@mui/material';
+import {
+  TableBody,
+  TableRow,
+  TableCell,
+  SelectChangeEvent,
+} from '@mui/material';
 import { headCells } from '../../data/mapDatas';
 import { MapType } from '../../data/mapTypes';
 import EmptyDataRowUI from './TableUI/EmptyDataRowUI';
-import TextFieldCellUI from './TableUI/TextFieldCellUI';
+import SelectCellUI from './TableUI/SelectCellUI';
 import SwitchCellUI from './TableUI/SwitchCellUI';
 import { SetStateAction } from 'react';
 
@@ -37,12 +42,15 @@ const TableSortBody = ({ data, onUpdate }: TableSortBodyType) => {
                     }}
                   />
                 ) : headCell.id === 'burning_field' ? (
-                  <TextFieldCellUI
+                  <SelectCellUI
                     value={row.burning_field}
-                    onChange={(value) => {
+                    onChange={(event: SelectChangeEvent<number>) => {
                       const updatedData = data.map((map) =>
                         map.map_name === row.map_name
-                          ? { ...map, burning_field: value }
+                          ? {
+                              ...map,
+                              burning_field: Number(event.target.value),
+                            }
                           : map
                       );
                       onUpdate(updatedData);
