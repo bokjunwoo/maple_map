@@ -18,6 +18,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
   소멸의여로: [
     {
       id: 1,
+      map_key: '소멸의여로',
       map_name: '소멸의여로임시1',
       symbols: 150,
       monster: '소멸의여로임시1',
@@ -29,6 +30,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 2,
+      map_key: '소멸의여로',
       map_name: '소멸의여로임시2',
       symbols: 150,
       monster: '소멸의여로임시2',
@@ -40,6 +42,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 3,
+      map_key: '소멸의여로',
       map_name: '소멸의여로임시3',
       symbols: 150,
       monster: '소멸의여로임시3',
@@ -51,6 +54,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 4,
+      map_key: '소멸의여로',
       map_name: '소멸의여로임시4',
       symbols: 150,
       monster: '소멸의여로임시4',
@@ -62,6 +66,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 5,
+      map_key: '소멸의여로',
       map_name: '소멸의여로임시5',
       symbols: 150,
       monster: '소멸의여로임시5',
@@ -75,6 +80,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
   리버스시티: [
     {
       id: 1,
+      map_key: '리버스시티',
       map_name: '리버스시티임시1',
       symbols: 150,
       monster: '리버스시티임시1',
@@ -86,6 +92,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 2,
+      map_key: '리버스시티',
       map_name: '리버스시티임시2',
       symbols: 150,
       monster: '리버스시티임시2',
@@ -97,6 +104,7 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
     },
     {
       id: 3,
+      map_key: '리버스시티',
       map_name: '리버스시티임시3',
       symbols: 150,
       monster: '리버스시티임시3',
