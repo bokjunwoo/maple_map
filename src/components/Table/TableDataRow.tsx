@@ -4,6 +4,7 @@ import { MapType } from '../../data/mapTypes';
 import SelectCellUI from './TableUI/SelectCellUI';
 import SwitchCellUI from './TableUI/SwitchCellUI';
 import { SetStateAction } from 'react';
+import { symbolsColor } from '../../data/colorDatas';
 
 type TableDataRowType = {
   data: MapType[];
@@ -27,8 +28,10 @@ const TableDataRow = ({ data, item, onUpdate }: TableDataRowType) => {
     onUpdate(updatedData);
   };
 
+  const backgroundColor = symbolsColor[item.map_key].bgColor;
+
   return (
-    <TableRow sx={{ bgcolor: '' }}>
+    <TableRow sx={{ bgcolor: backgroundColor }}>
       {headCells.map((headCell) => (
         <TableCell
           key={headCell.id}
