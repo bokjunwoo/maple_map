@@ -12,11 +12,12 @@ const TableSortHead = ({ orderBy, order, handleChange }: TableSortHeadType) => {
   return (
     <TableHead>
       <TableRow>
+        <TableCell />
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
-            align={headCell.id !== 'map_name' ? 'center' : 'inherit'}
+            align={headCell.id !== 'map_key' ? 'center' : 'inherit'}
           >
             {headCell.disableSorting ? (
               headCell.label
