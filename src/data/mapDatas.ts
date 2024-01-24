@@ -5,13 +5,25 @@ import {
 } from './mapTypes';
 
 export const headCells: HeadCell[] = [
-  { id: 'map_name', label: '맵이름' },
-  { id: 'symbols', label: '심볼', disableSorting: true },
-  { id: 'monster', label: '몬스터', disableSorting: true },
+  { id: 'map_key', label: '지역' },
+  { id: 'map_name', label: '사냥터' },
   { id: 'number_of_monster', label: '몬스터 젠수' },
-  { id: 'monster_money', label: '재화' },
-  { id: 'rune', label: '룬', disableSorting: true },
   { id: 'burning_field', label: '버닝필드', disableSorting: true },
+  {
+    id: 'half_hour_number_of_monster',
+    label: '30분당 최대 마릿수',
+    disableSorting: true,
+  },
+  {
+    id: 'half_hour_net_meso',
+    label: '30분당 최대 순 메소',
+    disableSorting: true,
+  },
+  {
+    id: 'half_hour_maximum_monster_experience',
+    label: '30분당 최대 경험치',
+    disableSorting: true,
+  },
 ];
 
 export const AraneRiverMapData: AraneRiverMapDataType = {
@@ -27,6 +39,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 2,
@@ -39,6 +54,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 3,
@@ -51,6 +69,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 4,
@@ -63,6 +84,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 5,
@@ -75,6 +99,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
   ],
   리버스시티: [
@@ -89,6 +116,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 2,
@@ -101,6 +131,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0,
     },
     {
       id: 3,
@@ -113,6 +146,9 @@ export const AraneRiverMapData: AraneRiverMapDataType = {
       monster_money: 1000,
       rune: false,
       burning_field: 0,
+      half_hour_net_meso: 0,
+      half_hour_number_of_monster: 0,
+      half_hour_maximum_monster_experience: 0 + 10,
     },
   ],
   츄츄아일랜드: [],

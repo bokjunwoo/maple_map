@@ -28,6 +28,9 @@ export type MapType = {
   monster_money: number;
   rune: boolean;
   burning_field: number;
+  half_hour_net_meso: number;
+  half_hour_number_of_monster: number;
+  half_hour_maximum_monster_experience: number;
 };
 
 export type MapDataType = {
