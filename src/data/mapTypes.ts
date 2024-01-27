@@ -23,6 +23,7 @@ export type MapType = {
   map_name: string;
   symbols: number;
   monster: string;
+  monster_level: number;
   number_of_monster: number;
   monster_experience: number;
   monster_money: number;
