@@ -10,6 +10,7 @@ import {
   Avatar,
 } from '@mui/material';
 import { MapType } from '../../../data/mapTypes';
+import CardDetailUI from '../../Card/CardDetailUI';
 
 type MapDetailCollapseUIType = {
   open: boolean;
@@ -31,65 +32,42 @@ const MapDetailCollapseUI = ({ open, mapInfo }: MapDetailCollapseUIType) => {
                   objectFit: 'fill',
                   borderRadius: '4px',
                 }}
-                image="/images/test1.png"
+                image={`/images/test2.png`}
                 alt="Live from space album cover"
               />
+
               <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                <CardContent sx={{ p: 0, width: 300 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
+                <CardContent sx={{ p: 0, ml: 1, width: 250 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                     <Avatar
-                      src={`./images/map_icon/소멸의여로.png`}
+                      src={`./images/map_icon/${mapInfo.map_key}.png`}
                       variant="rounded"
                       sx={{ p: 0.15 }}
                     />
-                    <Typography variant="h6" marginLeft={0.7}>
+                    <Typography variant="h6" marginLeft={0.5}>
                       {mapInfo.map_name}
                     </Typography>
                   </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
-                    <Avatar
-                      src={`./images/map_icon/소멸의여로.png`}
-                      variant="circular"
-                      sx={{ p: 0.15, width: 24, height: 24 }}
-                    />
-                    <Typography variant="subtitle1" marginLeft={0.5}>
-                      {mapInfo.symbols}
-                    </Typography>
-                  </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
-                    <Avatar
-                      src={`./images/map_icon/소멸의여로.png`}
-                      variant="circular"
-                      sx={{ p: 0.15, width: 24, height: 24 }}
-                    />
-                    <Typography variant="subtitle2" marginLeft={0.5}>
-                      {mapInfo.monster}
-                    </Typography>
-                  </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
-                    <Avatar
-                      src={`./images/map_icon/소멸의여로.png`}
-                      variant="circular"
-                      sx={{ p: 0.15, width: 24, height: 24 }}
-                    />
-                    <Typography variant="subtitle2" marginLeft={0.5}>
-                      {mapInfo.monster_experience}
-                    </Typography>
-                  </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
-                    <Avatar
-                      src={`./images/map_icon/소멸의여로.png`}
-                      variant="circular"
-                      sx={{ p: 0.15, width: 24, height: 24 }}
-                    />
-                    <Typography variant="subtitle2" marginLeft={0.5}>
-                      {mapInfo.monster_money}
-                    </Typography>
-                  </Box>
+                  <CardDetailUI
+                    src={`/images/symbol_icon/${mapInfo.map_key}.png`}
+                    variant="subtitle1"
+                    text={mapInfo.symbols}
+                  />
+                  <CardDetailUI
+                    src={`./images/monster.png`}
+                    variant="subtitle2"
+                    text={mapInfo.monster}
+                  />
+                  <CardDetailUI
+                    src={`./images/exp.png`}
+                    variant="subtitle2"
+                    text={mapInfo.monster_experience}
+                  />
+                  <CardDetailUI
+                    src={`./images/meso.png`}
+                    variant="subtitle2"
+                    text={mapInfo.monster_money}
+                  />
                 </CardContent>
               </Box>
             </Card>
