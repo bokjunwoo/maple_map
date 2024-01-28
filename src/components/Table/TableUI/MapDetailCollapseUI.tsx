@@ -8,6 +8,7 @@ import {
   CardMedia,
   CardContent,
   Avatar,
+  TextField,
 } from '@mui/material';
 import { MapType } from '../../../data/mapTypes';
 import CardDetailUI from '../../Card/CardDetailUI';
@@ -68,6 +69,91 @@ const MapDetailCollapseUI = ({ open, mapInfo }: MapDetailCollapseUIType) => {
                     variant="subtitle2"
                     text={mapInfo.monster_money}
                   />
+                </CardContent>
+              </Box>
+
+              <Box>
+                <CardContent sx={{ p: 0, ml: 1 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                    <Avatar
+                      src={`./images/map_icon/${'미정'}.png`}
+                      variant="rounded"
+                      sx={{ p: 0.15 }}
+                    />
+                    <Typography variant="h6" marginLeft={0.5}>
+                      상세정보 계산기
+                    </Typography>
+                  </Box>
+
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}
+                  >
+                    <Typography variant="subtitle1" marginLeft={0.5}>
+                      젠당 잡을 수 있는 마릿수:
+                    </Typography>
+
+                    <Box
+                      sx={{ display: 'flex', alignItems: 'center' }}
+                      marginLeft={1}
+                    >
+                      <TextField
+                        sx={{ width: 40 }}
+                        id="outlined-size-small"
+                        size="small"
+                        defaultValue={0}
+                        inputProps={{ sx: { p: 0.5, textAlign: 'center' } }}
+                      />
+
+                      <Typography variant="subtitle1" marginLeft={0.5}>
+                        / {mapInfo.number_of_monster}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}
+                  >
+                    <Typography variant="subtitle1" marginLeft={0.5}>
+                      6분당 내가 잡는 마릿수:
+                    </Typography>
+
+                    <Box
+                      sx={{ display: 'flex', alignItems: 'center' }}
+                      marginLeft={1}
+                    >
+                      <TextField
+                        sx={{ width: 40 }}
+                        id="outlined-size-small"
+                        size="small"
+                        defaultValue={0}
+                        inputProps={{ sx: { p: 0.5, textAlign: 'center' } }}
+                      />
+
+                      <Typography variant="subtitle1" marginLeft={0.5}>
+                        / {mapInfo.number_of_monster * 48}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}
+                  >
+                    <Typography variant="subtitle1" marginLeft={0.5}>
+                      6분당 경험치 획득량:{' '}
+                      {mapInfo.number_of_monster *
+                        48 *
+                        mapInfo.monster_experience}
+                    </Typography>
+                  </Box>
+
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}
+                  >
+                    <Typography variant="subtitle1" marginLeft={0.5}>
+                      6분당 메소 획득량:{' '}
+                      {mapInfo.number_of_monster * 48 * mapInfo.monster_money}
+                    </Typography>
+                  </Box>
                 </CardContent>
               </Box>
             </Card>
