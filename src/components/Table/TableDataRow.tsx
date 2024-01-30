@@ -12,7 +12,7 @@ import { SetStateAction, useState } from 'react';
 import { symbolsColor } from '../../data/colorDatas';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import MapDetailCollapseUI from './TableUI/MapDetailCollapseUI';
+import MapDetailCollapseUI from './TableCollapse';
 
 type TableDataRowType = {
   data: MapType[];

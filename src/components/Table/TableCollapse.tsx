@@ -10,15 +10,15 @@ import {
   Avatar,
   TextField,
 } from '@mui/material';
-import { MapType } from '../../../data/mapTypes';
-import CardDetailUI from '../../Card/CardDetailUI';
+import { MapType } from '../../data/mapTypes';
+import CardDetailUI from '../Card/CardDetailUI';
 
-type MapDetailCollapseUIType = {
+type TableCollapseType = {
   open: boolean;
   mapInfo: MapType;
 };
 
-const MapDetailCollapseUI = ({ open, mapInfo }: MapDetailCollapseUIType) => {
+const TableCollapse = ({ open, mapInfo }: TableCollapseType) => {
   return (
     <TableRow>
       <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
@@ -164,4 +164,4 @@ const MapDetailCollapseUI = ({ open, mapInfo }: MapDetailCollapseUIType) => {
   );
 };
 
-export default MapDetailCollapseUI;
+export default TableCollapse;
