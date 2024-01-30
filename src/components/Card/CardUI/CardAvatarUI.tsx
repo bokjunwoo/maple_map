@@ -1,13 +1,13 @@
 import { Box, Avatar, Typography } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
 
-type CardDetailUIType = {
+type CardAvatarUIType = {
   src: string;
   variant: Variant | 'inherit';
   text: string | number;
 };
 
-const CardDetailUI = ({ src, variant, text }: CardDetailUIType) => (
+const CardAvatarUI = ({ src, variant, text }: CardAvatarUIType) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
     <Avatar
       src={src}
@@ -20,4 +20,4 @@ const CardDetailUI = ({ src, variant, text }: CardDetailUIType) => (
   </Box>
 );
 
-export default CardDetailUI;
+export default CardAvatarUI;
