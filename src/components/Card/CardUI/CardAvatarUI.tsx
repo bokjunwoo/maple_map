@@ -5,14 +5,15 @@ type CardAvatarUIType = {
   src: string;
   variant: Variant | 'inherit';
   text: string | number;
+  size: number;
 };
 
-const CardAvatarUI = ({ src, variant, text }: CardAvatarUIType) => (
+const CardAvatarUI = ({ src, variant, text, size }: CardAvatarUIType) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
     <Avatar
       src={src}
       variant="rounded"
-      sx={{ p: 0.15, width: 24, height: 24 }}
+      sx={{ p: 0.15, width: size, height: size }}
     />
     <Typography variant={variant} marginLeft={0.5}>
       {text}
