@@ -5,6 +5,8 @@ import {
 
 export const numberAndDotRegex = /^\d*(\.\d{0,2})?$/;
 
+export const numberRegex = /^[0-9]*$/;
+
 export const handleSelectValueChange = ({
   event,
   currentValue,
