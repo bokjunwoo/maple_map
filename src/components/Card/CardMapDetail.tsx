@@ -4,19 +4,53 @@ import { MapType } from '../../data/mapTypes';
 import { ChangeEvent, useState } from 'react';
 import CardValueWithLabelUI from './CardUI/CardValueWithLabelUI';
 import CardTextFieldWithLabelUI from './CardUI/CardTextFieldWithLabelUI';
+import { numberRegex } from '../../util/utils';
 
 type CardMapDetailType = {
   mapInfo: MapType;
 };
 
 const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
-  const [monsterValue, setMonsterValue] = useState(mapInfo.number_of_monster);
+  const [monsterValue, setMonsterValue] = useState<number>(
+    mapInfo.number_of_monster
+  );
+  const [sixMinutesMonsterValue, setSixMinutesMonsterValue] = useState(
+    mapInfo.number_of_monster * 48
+  );
 
-  const handleMonsterValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setMonsterValue(Number(e.target.value));
+  const handleMonsterValue = (event: ChangeEvent<HTMLInputElement>) => {
+    const targetValue = Number(event.target.value);
+    const maxMonsterValue = mapInfo.number_of_monster * 48;
+
+    if (numberRegex.test(targetValue.toString())) {
+      setMonsterValue(targetValue);
+      setSixMinutesMonsterValue(targetValue * 48);
+    }
+
+    if (targetValue > mapInfo.number_of_monster) {
+      setMonsterValue(mapInfo.number_of_monster);
+      setSixMinutesMonsterValue(maxMonsterValue * 48);
+      return;
+    }
   };
 
-  const sixMinutesMonsterValue = monsterValue * 48;
+  const handleSixMinutesMonsterValue = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    const targetValue = Number(event.target.value);
+    const maxMonsterValue = mapInfo.number_of_monster * 48;
+
+    if (numberRegex.test(targetValue.toString())) {
+      setMonsterValue(parseFloat((targetValue / 48).toFixed(1)));
+      setSixMinutesMonsterValue(targetValue);
+    }
+
+    if (targetValue > maxMonsterValue) {
+      setMonsterValue(mapInfo.number_of_monster);
+      setSixMinutesMonsterValue(maxMonsterValue);
+      return;
+    }
+  };
 
   return (
     <Card sx={{ display: 'flex', border: 'none', boxShadow: 'none' }}>
@@ -90,7 +124,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
           <CardTextFieldWithLabelUI
             label="6분당 내가 잡는 마릿수:"
             value={sixMinutesMonsterValue}
-            onChange={handleMonsterValue}
+            onChange={handleSixMinutesMonsterValue}
             maxValue={mapInfo.number_of_monster * 48}
           />
 
