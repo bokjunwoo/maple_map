@@ -29,8 +29,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
 
     if (targetValue > mapInfo.number_of_monster) {
       setMonsterValue(mapInfo.number_of_monster);
-      setSixMinutesMonsterValue(maxMonsterValue * 48);
-      return;
+      setSixMinutesMonsterValue(maxMonsterValue);
     }
   };
 
@@ -105,8 +104,8 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
         </CardContent>
       </Box>
 
-      <Box>
-        <CardContent sx={{ p: 0, ml: 1 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardContent sx={{ p: 0, ml: 1, width: 300 }}>
           <CardAvatar
             src={`./images/map_icon/소멸의여로.png`}
             variant="h6"
