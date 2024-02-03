@@ -24,7 +24,6 @@ const CardTextFieldWithLabelUI = ({
         sx={{ width: 40 }}
         id="outlined-size-small"
         size="small"
-        defaultValue={0}
         value={value === 0 ? '' : value}
         onChange={onChange}
         inputProps={{ sx: { p: 0.5, textAlign: 'center' } }}
