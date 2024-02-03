@@ -6,9 +6,13 @@ import { AraneRiverMapData, GrandisMapData } from '../data/mapDatas';
 import MapTable from './MapTable';
 import { MapDataType, MapType } from '../data/mapTypes';
 
-const MapSelect = () => {
+type MapSeletType = {
+  level: number;
+};
+
+const MapSelect = ({ level }: MapSeletType) => {
   const [mapRegion, setMapRegion] = useState<'아케인리버' | '그란디스'>(
-    '아케인리버'
+    level >= 260 ? '그란디스' : '아케인리버'
   );
   const [mapDetailsName, setMapDetailsName] = useState<string[]>([]);
   const [selectMapData, setSelectMapData] = useState<MapType[]>([]);
@@ -44,6 +48,10 @@ const MapSelect = () => {
       mapDetailsName.flatMap((region) => selectedMap[region])
     );
   }, [mapDetailsName, selectedMap]);
+
+  useEffect(() => {
+    setMapRegion(level >= 260 ? '그란디스' : '아케인리버');
+  }, [level]);
 
   return (
     <Box>
