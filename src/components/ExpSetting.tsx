@@ -1,26 +1,35 @@
 import { Box, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
-import { handleSelectValueChange, numberAndDotRegex } from '../util/utils';
-import ExpCoupon from './ui/Exp/ExpCoupon';
-import MvpCoupon from './ui/Exp/MvpCoupon';
-import AccumulationPotion from './ui/Exp/AccumulationPotion';
-import ExtremeGoldPotion from './ui/Exp/ExtremeGoldPotion';
-import SpiritPendant from './ui/Exp/SpiritPendant';
-import BoostRing from './ui/Exp/BoostRing';
-import ElvenBlessing from './ui/Exp/ElvenBlessing';
-import KinshipRing from './ui/Exp/KinshipRing';
-import ZeroUnion from './ui/Exp/ZeroUnion';
-import LoadedDice from './ui/Exp/LoadedDice';
-import PremiumPCroom from './ui/Exp/PremiumPCroom';
-import HolySymbol from './ui/Exp/HolySymbol';
-import HyperStats from './ui/Exp/HyperStats';
-import ExpEtc from './ui/Exp/ExpEtc';
-import UnionPlacement from './ui/Exp/UnionPlacement';
+import {
+  handleInputValueChange,
+  handleSelectValueChange,
+  numberAndDotRegex,
+} from '../util/utils';
+import ExpCoupon from './UI/Exp/ExpCoupon';
+import MvpCoupon from './UI/Exp/MvpCoupon';
+import AccumulationPotion from './UI/Exp/AccumulationPotion';
+import ExtremeGoldPotion from './UI/Exp/ExtremeGoldPotion';
+import SpiritPendant from './UI/Exp/SpiritPendant';
+import BoostRing from './UI/Exp/BoostRing';
+import ElvenBlessing from './UI/Exp/ElvenBlessing';
+import KinshipRing from './UI/Exp/KinshipRing';
+import ZeroUnion from './UI/Exp/ZeroUnion';
+import LoadedDice from './UI/Exp/LoadedDice';
+import PremiumPCroom from './UI/Exp/PremiumPCroom';
+import HolySymbol from './UI/Exp/HolySymbol';
+import HyperStats from './UI/Exp/HyperStats';
+import ExpEtc from './UI/Exp/ExpEtc';
+import UnionPlacement from './UI/Exp/UnionPlacement';
 import ExpSelectSection from './ExpSelectSection';
 import ExpInputSection from './ExpInputSection';
+import SolJanus from './UI/Exp/SolJanus';
 
-const ExpSetting = () => {
-  const [expIncrease, setExpIncrease] = useState(100);
+type ExpIncreaseType = {
+  expIncrease: number;
+  setExpIncrease: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   const [expCouponValue, setExpCouponValue] = useState('');
   const [mvpCouponValue, setMvpCouponValue] = useState('');
   const [accumulationPotion, setAccumulationPotionValue] = useState('');
@@ -33,6 +42,7 @@ const ExpSetting = () => {
   const [loadedDice, setLoadedDiceValue] = useState('');
   const [premiumPCroom, setPremiumPCroomValue] = useState('');
   const [holySymbol, setHolySymbolValue] = useState('');
+  const [solJanus, setSolJanusValue] = useState('');
   const [hyperStats, setHyperStatsValue] = useState('');
   const [unionPlacement, setUnionPlacementValue] = useState('');
   const [expEtc, setExpEtcValue] = useState('');
@@ -143,19 +153,37 @@ const ExpSetting = () => {
   const handleHolySymbolChange = (event: SelectChangeEvent) => {
     setHolySymbolValue(event.target.value);
   };
+
+  const handleSolJanusChange = (event: SelectChangeEvent) => {
+    setSolJanusValue(event.target.value);
+  };
+
   const handleHyperStatsChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const inputValue = event.target.value;
 
     if (numberAndDotRegex.test(inputValue)) {
+      handleInputValueChange({
+        event,
+        currentValue: Number(hyperStats),
+        setExpIncrease,
+        setValue: setHyperStatsValue,
+      });
       setHyperStatsValue(inputValue);
     }
 
     if (Number(inputValue) > 10) {
+      handleInputValueChange({
+        event,
+        currentValue: Number(hyperStats),
+        setExpIncrease,
+        setValue: setHyperStatsValue,
+      });
       setHyperStatsValue('10');
     }
   };
+
   const handleUnionPlacementChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -168,13 +196,28 @@ const ExpSetting = () => {
     if (Number(inputValue) > 10) {
       setUnionPlacementValue('10');
     }
+
+    handleInputValueChange({
+      event,
+      currentValue: Number(unionPlacement),
+      setExpIncrease,
+      setValue: setUnionPlacementValue,
+    });
   };
+
   const handleExpEtcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
     if (numberAndDotRegex.test(inputValue)) {
       setExpEtcValue(inputValue);
     }
+
+    handleInputValueChange({
+      event,
+      currentValue: Number(expEtc),
+      setExpIncrease,
+      setValue: setExpEtcValue,
+    });
   };
 
   return (
@@ -299,11 +342,19 @@ const ExpSetting = () => {
             handleChange={handleLoadedDiceChange}
             Component={LoadedDice}
           />
+
           <ExpInputSection
             name="holy-symbol"
             value={holySymbol}
             handleChange={handleHolySymbolChange}
             Component={HolySymbol}
+          />
+
+          <ExpInputSection
+            name="sol-janus"
+            value={solJanus}
+            handleChange={handleSolJanusChange}
+            Component={SolJanus}
           />
         </Box>
       </Box>
