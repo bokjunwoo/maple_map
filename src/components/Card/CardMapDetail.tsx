@@ -61,7 +61,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
           objectFit: 'fill',
           borderRadius: '4px',
         }}
-        image={`/images/test2.png`}
+        image={`/images/map/${mapInfo.map_key}/${mapInfo.map_name}.png`}
         alt="Live from space album cover"
       />
 
