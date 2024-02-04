@@ -22,10 +22,10 @@ export type MapType = {
     | '카르시온';
   map_name: string;
   symbols: number;
-  monster: string;
-  monster_level: number;
-  number_of_monster: number;
-  monster_experience: number;
+  monster: string | string[];
+  monster_level: number | number[];
+  number_of_monster: number | number[];
+  monster_experience: number | number[];
   monster_money: number;
   rune: boolean;
   burning_field: number;
