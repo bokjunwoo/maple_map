@@ -21,7 +21,7 @@ const CardTextFieldWithLabelUI = ({
 
     <Box sx={{ display: 'flex', alignItems: 'center' }} marginLeft={1}>
       <TextField
-        sx={{ width: 40 }}
+        sx={{ width: 50 }}
         id="outlined-size-small"
         size="small"
         value={value === 0 ? '' : value}
