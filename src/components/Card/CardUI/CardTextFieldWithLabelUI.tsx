@@ -15,9 +15,7 @@ const CardTextFieldWithLabelUI = ({
   maxValue,
 }: CardTextFieldWithLabelUIType) => (
   <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, mb: 1 }}>
-    <Typography variant="subtitle1" marginLeft={0.5}>
-      {label}
-    </Typography>
+    <Typography variant="subtitle1">{label}</Typography>
 
     <Box sx={{ display: 'flex', alignItems: 'center' }} marginLeft={1}>
       <TextField
