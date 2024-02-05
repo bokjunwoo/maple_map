@@ -105,7 +105,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
       </Box>
 
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ p: 0, ml: 1, width: 300 }}>
+        <CardContent sx={{ p: 0, ml: 1, width: 350 }}>
           <CardAvatar
             src={`./images/map_icon/소멸의여로.png`}
             variant="h6"
@@ -130,11 +130,13 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
           <CardValueWithLabelUI
             label="6분당 경험치 획득량:"
             value={sixMinutesMonsterValue * mapInfo.monster_experience}
+            unit="경험치"
           />
 
           <CardValueWithLabelUI
             label="6분당 메소 획득량:"
             value={sixMinutesMonsterValue * mapInfo.monster_money}
+            unit="메소"
           />
         </CardContent>
       </Box>
