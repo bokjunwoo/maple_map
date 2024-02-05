@@ -320,7 +320,7 @@ export const GrandisMapData: GrandisMapDataType = {
     {
       id: 10,
       map_key: '세르니움',
-      map_name: '세르니움 동쪽 성벽 1',
+      map_name: '세르니움 동쪽 성벽 3',
       symbols: 30,
       monster: '화염 정령',
       monster_level: 261,
