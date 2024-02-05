@@ -6,13 +6,12 @@ import {
 } from '@mui/material';
 import { headCells } from '../../data/mapDatas';
 import { MapType } from '../../data/mapTypes';
-import SelectCellUI from './TableUI/SelectCellUI';
-import SwitchCellUI from './TableUI/SwitchCellUI';
 import { SetStateAction, useState } from 'react';
 import { symbolsColor } from '../../data/colorDatas';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import MapDetailCollapseUI from './TableCollapse';
+import TableCellContentUI from './TableUI/TableCellContentUI';
 
 type TableDataRowType = {
   data: MapType[];
@@ -54,16 +53,13 @@ const TableDataRow = ({ data, item, onUpdate }: TableDataRowType) => {
             key={headCell.id}
             align={headCell.id !== 'map_key' ? 'center' : 'inherit'}
           >
-            {headCell.id === 'rune' ? (
-              <SwitchCellUI checked={item.rune} onChange={handleSwitchChange} />
-            ) : headCell.id === 'burning_field' ? (
-              <SelectCellUI
-                value={item.burning_field}
-                onChange={handleSelectChange}
-              />
-            ) : (
-              item[headCell.id]
-            )}
+            <TableCellContentUI
+              key={item.map_name}
+              headCell={headCell}
+              item={item}
+              handleSelectChange={handleSelectChange}
+              handleSwitchChange={handleSwitchChange}
+            />
           </TableCell>
         ))}
       </TableRow>
