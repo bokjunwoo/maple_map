@@ -2,7 +2,10 @@ import { SelectChangeEvent } from '@mui/material';
 import { HeadCell, MapType } from '../../../data/mapTypes';
 import SelectCellUI from './SelectCellUI';
 import SwitchCellUI from './SwitchCellUI';
-import { calculateReward } from '../../../util/utils';
+import {
+  calculateNumberOfMonsters,
+  calculateReward,
+} from '../../../util/utils';
 
 type TableCellContentUIType = {
   headCell: HeadCell;
@@ -29,8 +32,8 @@ const TableCellContentUI = ({
       );
     case 'half_hour_maximum_monster_experience':
       return calculateReward(item.monster_experience, item.number_of_monster);
-    // case 'half_hour_number_of_monster':
-    //   return expCalculation(item);
+    case 'half_hour_number_of_monster':
+      return calculateNumberOfMonsters(item.number_of_monster);
     case 'half_hour_net_meso':
       return calculateReward(item.monster_money, item.number_of_monster);
     default:
