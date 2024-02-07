@@ -1,3 +1,4 @@
+import { summonRatePerMinute, halfHour } from '../constants/constants';
 import {
   HandleCouponValueInputChangeParams,
   HandleCouponValueSelectChangeParams,
@@ -55,4 +56,25 @@ export const formatNumber = (number: number, unit: '메소' | '경험치') => {
   }
 
   return result.trim() + ' ' + unit;
+};
+
+export const calculateReward = (
+  value: number | number[],
+  numberOfMonsters: number | number[]
+) => {
+  let totalReward = 0;
+
+  if (typeof numberOfMonsters === 'number' && typeof value === 'number') {
+    totalReward = numberOfMonsters * value * summonRatePerMinute * halfHour;
+  }
+
+  if (Array.isArray(value) && Array.isArray(numberOfMonsters)) {
+    totalReward = numberOfMonsters.reduce((total, numMonsters, index) => {
+      const expValue =
+        numMonsters * value[index] * summonRatePerMinute * halfHour;
+      return total + expValue;
+    }, 0);
+  }
+
+  return totalReward.toLocaleString();
 };
