@@ -70,9 +70,9 @@ export const calculateReward = (
 
   if (Array.isArray(value) && Array.isArray(numberOfMonsters)) {
     totalReward = numberOfMonsters.reduce((total, numMonsters, index) => {
-      const expValue =
+      const monstersValue =
         numMonsters * value[index] * summonRatePerMinute * halfHour;
-      return total + expValue;
+      return total + monstersValue;
     }, 0);
   }
 
