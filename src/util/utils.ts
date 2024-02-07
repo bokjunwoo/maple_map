@@ -78,3 +78,22 @@ export const calculateReward = (
 
   return totalReward.toLocaleString();
 };
+
+export const calculateNumberOfMonsters = (
+  numberOfMonsters: number | number[]
+) => {
+  let totalMonsters = 0;
+
+  if (typeof numberOfMonsters === 'number') {
+    totalMonsters = numberOfMonsters * summonRatePerMinute * halfHour;
+  }
+
+  if (Array.isArray(numberOfMonsters)) {
+    totalMonsters = numberOfMonsters.reduce((total, numMonsters) => {
+      const monstersValue = numMonsters * summonRatePerMinute * halfHour;
+      return total + monstersValue;
+    }, 0);
+  }
+
+  return totalMonsters;
+};
