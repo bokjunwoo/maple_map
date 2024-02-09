@@ -4,31 +4,36 @@ import { MapType } from '../../data/mapTypes';
 import { ChangeEvent, useState } from 'react';
 import CardValueWithLabelUI from './CardUI/CardValueWithLabelUI';
 import CardTextFieldWithLabelUI from './CardUI/CardTextFieldWithLabelUI';
-import { numberRegex } from '../../util/utils';
+import { arrayToString, numberRegex, sumArrayOrNumber } from '../../util/utils';
 
 type CardMapDetailType = {
   mapInfo: MapType;
 };
 
 const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
+  const totalNumberOfMonsters = sumArrayOrNumber(mapInfo.number_of_monster);
+  const monsterNameValue = arrayToString(mapInfo.monster);
+  const monsterMoneyValue = arrayToString(mapInfo.monster_money);
+  const monsterExperienceValue = arrayToString(mapInfo.monster_experience);
+
   const [monsterValue, setMonsterValue] = useState<number>(
-    mapInfo.number_of_monster
+    totalNumberOfMonsters
   );
   const [sixMinutesMonsterValue, setSixMinutesMonsterValue] = useState(
-    mapInfo.number_of_monster * 48
+    totalNumberOfMonsters * 48
   );
 
   const handleMonsterValue = (event: ChangeEvent<HTMLInputElement>) => {
     const targetValue = Number(event.target.value);
-    const maxMonsterValue = mapInfo.number_of_monster * 48;
+    const maxMonsterValue = totalNumberOfMonsters * 48;
 
     if (numberRegex.test(targetValue.toString())) {
       setMonsterValue(targetValue);
       setSixMinutesMonsterValue(targetValue * 48);
     }
 
-    if (targetValue > mapInfo.number_of_monster) {
-      setMonsterValue(mapInfo.number_of_monster);
+    if (targetValue > totalNumberOfMonsters) {
+      setMonsterValue(totalNumberOfMonsters);
       setSixMinutesMonsterValue(maxMonsterValue);
     }
   };
@@ -37,7 +42,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
     event: ChangeEvent<HTMLInputElement>
   ) => {
     const targetValue = Number(event.target.value);
-    const maxMonsterValue = mapInfo.number_of_monster * 48;
+    const maxMonsterValue = totalNumberOfMonsters * 48;
 
     if (numberRegex.test(targetValue.toString())) {
       setMonsterValue(parseFloat((targetValue / 48).toFixed(1)));
@@ -45,7 +50,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
     }
 
     if (targetValue > maxMonsterValue) {
-      setMonsterValue(mapInfo.number_of_monster);
+      setMonsterValue(totalNumberOfMonsters);
       setSixMinutesMonsterValue(maxMonsterValue);
       return;
     }
@@ -84,21 +89,21 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
           <CardAvatar
             src={`./images/monster.png`}
             variant="subtitle2"
-            text={mapInfo.monster}
+            text={monsterNameValue}
             size={24}
           />
 
           <CardAvatar
             src={`./images/exp.png`}
             variant="subtitle2"
-            text={mapInfo.monster_experience}
+            text={monsterExperienceValue}
             size={24}
           />
 
           <CardAvatar
             src={`./images/meso.png`}
             variant="subtitle2"
-            text={mapInfo.monster_money}
+            text={monsterMoneyValue}
             size={24}
           />
         </CardContent>
@@ -117,14 +122,14 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
             label="젠당 잡을 수 있는 마릿수:"
             value={monsterValue}
             onChange={handleMonsterValue}
-            maxValue={mapInfo.number_of_monster}
+            maxValue={totalNumberOfMonsters}
           />
 
           <CardTextFieldWithLabelUI
             label="6분당 내가 잡는 마릿수:"
             value={sixMinutesMonsterValue}
             onChange={handleSixMinutesMonsterValue}
-            maxValue={mapInfo.number_of_monster * 48}
+            maxValue={totalNumberOfMonsters * 48}
           />
 
           <CardValueWithLabelUI
