@@ -5,6 +5,7 @@ import SwitchCellUI from './SwitchCellUI';
 import {
   calculateNumberOfMonsters,
   calculateReward,
+  sumArrayOrNumber,
 } from '../../../util/utils';
 
 type TableCellContentUIType = {
@@ -30,6 +31,8 @@ const TableCellContentUI = ({
           onChange={handleSelectChange}
         />
       );
+    case 'number_of_monster':
+      return sumArrayOrNumber(item.number_of_monster);
     case 'half_hour_maximum_monster_experience':
       return calculateReward(item.monster_experience, item.number_of_monster);
     case 'half_hour_number_of_monster':
