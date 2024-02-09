@@ -26,7 +26,7 @@ export type MapType = {
   monster_level: number | number[];
   number_of_monster: number | number[];
   monster_experience: number | number[];
-  monster_money: number;
+  monster_money: number | number[];
   rune: boolean;
   burning_field: number;
   half_hour_net_meso: number;
