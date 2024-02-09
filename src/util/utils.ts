@@ -97,3 +97,7 @@ export const calculateNumberOfMonsters = (
 
   return totalMonsters;
 };
+
+export const arrayToString = (input: number | number[] | string | string[]) => {
+  return Array.isArray(input) ? input.join(', ') : input;
+};
