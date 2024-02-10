@@ -7,6 +7,7 @@ import {
   calculateReward,
   sumArrayOrNumber,
 } from '../../../util/utils';
+import { halfHour } from '../../../constants/constants';
 
 type TableCellContentUIType = {
   headCell: HeadCell;
@@ -34,11 +35,19 @@ const TableCellContentUI = ({
     case 'number_of_monster':
       return sumArrayOrNumber(item.number_of_monster);
     case 'half_hour_maximum_monster_experience':
-      return calculateReward(item.monster_experience, item.number_of_monster);
+      return calculateReward(
+        item.monster_experience,
+        item.number_of_monster,
+        halfHour
+      );
     case 'half_hour_number_of_monster':
-      return calculateNumberOfMonsters(item.number_of_monster);
+      return calculateNumberOfMonsters(item.number_of_monster, halfHour);
     case 'half_hour_net_meso':
-      return calculateReward(item.monster_money, item.number_of_monster);
+      return calculateReward(
+        item.monster_money,
+        item.number_of_monster,
+        halfHour
+      );
     default:
       return item[headCell.id];
   }
