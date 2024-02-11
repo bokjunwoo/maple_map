@@ -1,4 +1,4 @@
-import { SelectChangeEvent } from '@mui/material';
+import { Box, SelectChangeEvent } from '@mui/material';
 import { HeadCell, MapType } from '../../../data/mapTypes';
 import SelectCellUI from './SelectCellUI';
 import SwitchCellUI from './SwitchCellUI';
@@ -7,7 +7,7 @@ import {
   calculateReward,
   sumArrayOrNumber,
 } from '../../../util/utils';
-import { halfHour } from '../../../constants/constants';
+import { HALF_HOUR } from '../../../constants/constants';
 
 type TableCellContentUIType = {
   headCell: HeadCell;
@@ -33,23 +33,40 @@ const TableCellContentUI = ({
         />
       );
     case 'number_of_monster':
-      return sumArrayOrNumber(item.number_of_monster);
+      return <Box>{sumArrayOrNumber(item.number_of_monster)}</Box>;
     case 'half_hour_maximum_monster_experience':
-      return calculateReward(
-        item.monster_experience,
-        item.number_of_monster,
-        halfHour
+      return (
+        <Box>
+          {calculateReward(
+            item.monster_experience,
+            item.number_of_monster,
+            HALF_HOUR
+          ).toLocaleString()}
+        </Box>
       );
     case 'half_hour_number_of_monster':
-      return calculateNumberOfMonsters(item.number_of_monster, halfHour);
-    case 'half_hour_net_meso':
-      return calculateReward(
-        item.monster_money,
-        item.number_of_monster,
-        halfHour
+      return (
+        <Box>
+          {calculateNumberOfMonsters(
+            item.number_of_monster,
+            HALF_HOUR
+          ).toLocaleString()}
+        </Box>
       );
+
+    case 'half_hour_net_meso':
+      return (
+        <Box>
+          {calculateReward(
+            item.monster_money,
+            item.number_of_monster,
+            HALF_HOUR
+          ).toLocaleString()}
+        </Box>
+      );
+
     default:
-      return item[headCell.id];
+      return <Box>{item[headCell.id]}</Box>;
   }
 };
 
