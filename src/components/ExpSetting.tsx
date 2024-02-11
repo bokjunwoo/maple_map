@@ -1,10 +1,6 @@
 import { Box, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
-import {
-  handleInputValueChange,
-  handleSelectValueChange,
-  numberAndDotRegex,
-} from '../util/utils';
+import { handleInputValueChange, handleSelectValueChange } from '../util/utils';
 import ExpCoupon from './UI/Exp/ExpCoupon';
 import MvpCoupon from './UI/Exp/MvpCoupon';
 import AccumulationPotion from './UI/Exp/AccumulationPotion';
@@ -23,6 +19,7 @@ import UnionPlacement from './UI/Exp/UnionPlacement';
 import ExpSelectSection from './ExpSelectSection';
 import ExpInputSection from './ExpInputSection';
 import SolJanus from './UI/Exp/SolJanus';
+import { REGEX } from '../constants/constants';
 
 type ExpIncreaseType = {
   expIncrease: number;
@@ -163,24 +160,19 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   ) => {
     const inputValue = event.target.value;
 
-    if (numberAndDotRegex.test(inputValue)) {
-      handleInputValueChange({
-        event,
-        currentValue: Number(hyperStats),
-        setExpIncrease,
-        setValue: setHyperStatsValue,
-      });
-      setHyperStatsValue(inputValue);
-    }
+    if (REGEX.NUMBER.test(inputValue)) {
+      let updatedValue = inputValue;
 
-    if (Number(inputValue) > 10) {
+      if (Number(updatedValue) > 10) {
+        updatedValue = '10';
+      }
+
       handleInputValueChange({
-        event,
+        value: updatedValue,
         currentValue: Number(hyperStats),
         setExpIncrease,
         setValue: setHyperStatsValue,
       });
-      setHyperStatsValue('10');
     }
   };
 
