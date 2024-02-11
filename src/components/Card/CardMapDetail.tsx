@@ -4,7 +4,12 @@ import { MapType } from '../../data/mapTypes';
 import { ChangeEvent, useState } from 'react';
 import CardValueWithLabelUI from './CardUI/CardValueWithLabelUI';
 import CardTextFieldWithLabelUI from './CardUI/CardTextFieldWithLabelUI';
-import { arrayToString, numberRegex, sumArrayOrNumber } from '../../util/utils';
+import {
+  arrayToString,
+  calculateReward,
+  sumArrayOrNumber,
+} from '../../util/utils';
+import { REGEX, SIX_MINUTES } from '../../constants/constants';
 
 type CardMapDetailType = {
   mapInfo: MapType;
@@ -27,7 +32,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
     const targetValue = Number(event.target.value);
     const maxMonsterValue = totalNumberOfMonsters * 48;
 
-    if (numberRegex.test(targetValue.toString())) {
+    if (REGEX.NUMBER.test(targetValue.toString())) {
       setMonsterValue(targetValue);
       setSixMinutesMonsterValue(targetValue * 48);
     }
@@ -44,7 +49,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
     const targetValue = Number(event.target.value);
     const maxMonsterValue = totalNumberOfMonsters * 48;
 
-    if (numberRegex.test(targetValue.toString())) {
+    if (REGEX.NUMBER.test(targetValue.toString())) {
       setMonsterValue(parseFloat((targetValue / 48).toFixed(1)));
       setSixMinutesMonsterValue(targetValue);
     }
@@ -55,6 +60,18 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
       return;
     }
   };
+
+  const expReward = Number(
+    calculateReward(
+      monsterValue,
+      mapInfo.monster_experience,
+      SIX_MINUTES
+    ).toFixed(0)
+  );
+
+  const mesoReward = Number(
+    calculateReward(monsterValue, mapInfo.monster_money, 6).toFixed(0)
+  );
 
   return (
     <Card sx={{ display: 'flex', border: 'none', boxShadow: 'none' }}>
@@ -134,13 +151,13 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
 
           <CardValueWithLabelUI
             label="6분당 경험치 획득량:"
-            value={sixMinutesMonsterValue * mapInfo.monster_experience}
+            value={expReward}
             unit="경험치"
           />
 
           <CardValueWithLabelUI
             label="6분당 메소 획득량:"
-            value={sixMinutesMonsterValue * mapInfo.monster_money}
+            value={mesoReward}
             unit="메소"
           />
         </CardContent>
