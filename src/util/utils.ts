@@ -77,7 +77,7 @@ export const calculateReward = (
     }, 0);
   }
 
-  return totalReward.toLocaleString();
+  return totalReward;
 };
 
 export const calculateNumberOfMonsters = (
