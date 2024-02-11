@@ -1,12 +1,8 @@
-import { summonRatePerMinute } from '../constants/constants';
+import { SUMMON_RATE_PER_MINUTE } from '../constants/constants';
 import {
   HandleCouponValueInputChangeParams,
   HandleCouponValueSelectChangeParams,
 } from './Tutils';
-
-export const numberAndDotRegex = /^\d*(\.\d{0,2})?$/;
-
-export const numberRegex = /^[0-9]*$/;
 
 export const handleSelectValueChange = ({
   event,
@@ -66,13 +62,13 @@ export const calculateReward = (
   let totalReward = 0;
 
   if (typeof numberOfMonsters === 'number' && typeof value === 'number') {
-    totalReward = numberOfMonsters * value * summonRatePerMinute * time;
+    totalReward = numberOfMonsters * value * SUMMON_RATE_PER_MINUTE * time;
   }
 
   if (Array.isArray(value) && Array.isArray(numberOfMonsters)) {
     totalReward = numberOfMonsters.reduce((total, numMonsters, index) => {
       const monstersValue =
-        numMonsters * value[index] * summonRatePerMinute * time;
+        numMonsters * value[index] * SUMMON_RATE_PER_MINUTE * time;
       return total + monstersValue;
     }, 0);
   }
@@ -87,12 +83,12 @@ export const calculateNumberOfMonsters = (
   let totalMonsters = 0;
 
   if (typeof numberOfMonsters === 'number') {
-    totalMonsters = numberOfMonsters * summonRatePerMinute * time;
+    totalMonsters = numberOfMonsters * SUMMON_RATE_PER_MINUTE * time;
   }
 
   if (Array.isArray(numberOfMonsters)) {
     totalMonsters = numberOfMonsters.reduce((total, numMonsters) => {
-      const monstersValue = numMonsters * summonRatePerMinute * time;
+      const monstersValue = numMonsters * SUMMON_RATE_PER_MINUTE * time;
       return total + monstersValue;
     }, 0);
   }
