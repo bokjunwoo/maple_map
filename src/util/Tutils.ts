@@ -8,7 +8,7 @@ export type HandleCouponValueSelectChangeParams = {
 };
 
 export type HandleCouponValueInputChangeParams = {
-  event: React.ChangeEvent<HTMLInputElement>;
+  value: string;
   currentValue: number;
   setExpIncrease: React.Dispatch<React.SetStateAction<number>>;
   setValue: React.Dispatch<React.SetStateAction<string>>;

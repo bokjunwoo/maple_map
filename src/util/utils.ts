@@ -22,20 +22,17 @@ export const handleSelectValueChange = ({
 };
 
 export const handleInputValueChange = ({
-  event,
+  value,
   currentValue,
   setExpIncrease,
   setValue,
 }: HandleCouponValueInputChangeParams): void => {
-  const updatedValue = Number(event.target.value);
-
-  if (currentValue !== updatedValue) {
+  if (currentValue !== Number(value)) {
     setExpIncrease(
-      (prevExpIncrease) => prevExpIncrease - currentValue + updatedValue
+      (prevExpIncrease) => prevExpIncrease - currentValue + Number(value)
     );
+    setValue(value.toString());
   }
-
-  setValue(event.target.value);
 };
 
 export const formatNumber = (number: number, unit: '메소' | '경험치') => {
