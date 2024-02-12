@@ -35,6 +35,30 @@ export const handleInputValueChange = ({
   }
 };
 
+export const handleInputChange = (
+  inputValue: string,
+  currentValue: string,
+  setExpIncrease: React.Dispatch<React.SetStateAction<number>>,
+  setValue: React.Dispatch<React.SetStateAction<string>>,
+  regex: RegExp,
+  maxAllowedValue: number
+) => {
+  if (regex.test(inputValue)) {
+    let updatedValue = inputValue;
+
+    if (Number(updatedValue) > maxAllowedValue) {
+      updatedValue = maxAllowedValue.toString();
+    }
+
+    handleInputValueChange({
+      value: updatedValue,
+      currentValue: Number(currentValue),
+      setExpIncrease,
+      setValue,
+    });
+  }
+};
+
 export const formatNumber = (number: number, unit: '메소' | '경험치') => {
   const units = [' ', '만', '억', '조', '경'];
   let result = '';
