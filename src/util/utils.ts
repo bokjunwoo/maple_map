@@ -1,48 +1,31 @@
 import { SUMMON_RATE_PER_MINUTE } from '../constants/constants';
 import {
-  HandleCouponValueInputChangeParams,
-  HandleCouponValueSelectChangeParams,
+  HandleValueChangeParams,
+  HandleValueInputChangeParams,
 } from './Tutils';
 
-export const handleSelectValueChange = ({
-  event,
+export const handleValueChange = ({
+  inputValue,
   currentValue,
   setExpIncrease,
   setValue,
-}: HandleCouponValueSelectChangeParams): void => {
-  const updatedValue = Number(event.target.value);
-
-  if (currentValue !== updatedValue) {
+}: HandleValueChangeParams): void => {
+  if (currentValue !== Number(inputValue)) {
     setExpIncrease(
-      (prevExpIncrease) => prevExpIncrease - currentValue + updatedValue
+      (prevExpIncrease) => prevExpIncrease - currentValue + Number(inputValue)
     );
+    setValue(inputValue.toString());
   }
-
-  setValue(event.target.value);
 };
 
 export const handleInputValueChange = ({
-  value,
+  inputValue,
   currentValue,
   setExpIncrease,
   setValue,
-}: HandleCouponValueInputChangeParams): void => {
-  if (currentValue !== Number(value)) {
-    setExpIncrease(
-      (prevExpIncrease) => prevExpIncrease - currentValue + Number(value)
-    );
-    setValue(value.toString());
-  }
-};
-
-export const handleInputChange = (
-  inputValue: string,
-  currentValue: string,
-  setExpIncrease: React.Dispatch<React.SetStateAction<number>>,
-  setValue: React.Dispatch<React.SetStateAction<string>>,
-  regex: RegExp,
-  maxAllowedValue: number
-) => {
+  regex,
+  maxAllowedValue,
+}: HandleValueInputChangeParams) => {
   if (regex.test(inputValue)) {
     let updatedValue = inputValue;
 
@@ -50,8 +33,8 @@ export const handleInputChange = (
       updatedValue = maxAllowedValue.toString();
     }
 
-    handleInputValueChange({
-      value: updatedValue,
+    handleValueChange({
+      inputValue: updatedValue,
       currentValue: Number(currentValue),
       setExpIncrease,
       setValue,
