@@ -1,6 +1,6 @@
 import { Box, SelectChangeEvent, Typography } from '@mui/material';
 import { useState } from 'react';
-import { handleInputValueChange, handleSelectValueChange } from '../util/utils';
+import { handleValueChange, handleInputValueChange } from '../util/utils';
 import ExpCoupon from './UI/Exp/ExpCoupon';
 import MvpCoupon from './UI/Exp/MvpCoupon';
 import AccumulationPotion from './UI/Exp/AccumulationPotion';
@@ -47,8 +47,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   const handleExpCouponValueChange = (
     event: SelectChangeEvent<string>
   ): void => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(expCouponValue),
       setExpIncrease,
       setValue: setExpCouponValue,
@@ -58,8 +60,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   const handleMvpCouponValueChange = (
     event: SelectChangeEvent<string>
   ): void => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(mvpCouponValue),
       setExpIncrease,
       setValue: setMvpCouponValue,
@@ -67,8 +71,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleAccumulationPotionValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(accumulationPotion),
       setExpIncrease,
       setValue: setAccumulationPotionValue,
@@ -76,8 +82,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleExtremeGoldPotionValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(extremeGoldPotion),
       setExpIncrease,
       setValue: setExtremeGoldPotionValue,
@@ -85,8 +93,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleSpiritPendantValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(spiritPendant),
       setExpIncrease,
       setValue: setSpiritPendantValue,
@@ -94,8 +104,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleBoostRingValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(boostRing),
       setExpIncrease,
       setValue: setBoostRingValue,
@@ -103,8 +115,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleElvenBlessingValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(elvenBlessing),
       setExpIncrease,
       setValue: setElvenBlessingValue,
@@ -112,8 +126,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleKinshipRingValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(kinshipRing),
       setExpIncrease,
       setValue: setKinshipRingValue,
@@ -121,8 +137,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleZeroUnionValueChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(zeroUnion),
       setExpIncrease,
       setValue: setZeroUnionValue,
@@ -130,8 +148,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleLoadedDiceChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(loadedDice),
       setExpIncrease,
       setValue: setLoadedDiceValue,
@@ -139,8 +159,10 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handlePremiumPCroomChange = (event: SelectChangeEvent) => {
-    handleSelectValueChange({
-      event,
+    const inputValue = event.target.value;
+
+    handleValueChange({
+      inputValue,
       currentValue: Number(premiumPCroom),
       setExpIncrease,
       setValue: setPremiumPCroomValue,
@@ -160,20 +182,14 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   ) => {
     const inputValue = event.target.value;
 
-    if (REGEX.NUMBER.test(inputValue)) {
-      let updatedValue = inputValue;
-
-      if (Number(updatedValue) > 10) {
-        updatedValue = '10';
-      }
-
-      handleInputValueChange({
-        value: updatedValue,
-        currentValue: Number(hyperStats),
-        setExpIncrease,
-        setValue: setHyperStatsValue,
-      });
-    }
+    handleInputValueChange({
+      inputValue,
+      currentValue: hyperStats,
+      setExpIncrease,
+      setValue: setHyperStatsValue,
+      regex: REGEX.NUMBER_AND_DOT,
+      maxAllowedValue: 10,
+    });
   };
 
   const handleUnionPlacementChange = (
