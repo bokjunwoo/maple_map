@@ -197,34 +197,26 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   ) => {
     const inputValue = event.target.value;
 
-    if (numberAndDotRegex.test(inputValue)) {
-      setUnionPlacementValue(inputValue);
-    }
-
-    if (Number(inputValue) > 10) {
-      setUnionPlacementValue('10');
-    }
-
     handleInputValueChange({
-      event,
-      currentValue: Number(unionPlacement),
+      inputValue,
+      currentValue: unionPlacement,
       setExpIncrease,
       setValue: setUnionPlacementValue,
+      regex: REGEX.NUMBER_AND_DOT,
+      maxAllowedValue: 10,
     });
   };
 
   const handleExpEtcChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
 
-    if (numberAndDotRegex.test(inputValue)) {
-      setExpEtcValue(inputValue);
-    }
-
     handleInputValueChange({
-      event,
-      currentValue: Number(expEtc),
+      inputValue,
+      currentValue: expEtc,
       setExpIncrease,
       setValue: setExpEtcValue,
+      regex: REGEX.NUMBER_AND_DOT,
+      maxAllowedValue: 10,
     });
   };
 
