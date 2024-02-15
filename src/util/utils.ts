@@ -7,11 +7,11 @@ import {
 export const handleValueChange = ({
   inputValue,
   currentValue,
-  setExpIncrease,
+  setExpRate,
   setValue,
 }: HandleValueChangeParams): void => {
   if (currentValue !== Number(inputValue)) {
-    setExpIncrease(
+    setExpRate(
       (prevExpIncrease) => prevExpIncrease - currentValue + Number(inputValue)
     );
     setValue(inputValue.toString());
@@ -21,8 +21,8 @@ export const handleValueChange = ({
 export const handleInputValueChange = ({
   inputValue,
   currentValue,
-  setExpIncrease,
   setValue,
+  setExpRate,
   regex,
   maxAllowedValue,
 }: HandleValueInputChangeParams) => {
@@ -36,8 +36,8 @@ export const handleInputValueChange = ({
     handleValueChange({
       inputValue: updatedValue,
       currentValue: Number(currentValue),
-      setExpIncrease,
       setValue,
+      setExpRate,
     });
   }
 };

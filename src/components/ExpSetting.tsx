@@ -20,13 +20,11 @@ import ExpSelectSection from './ExpSelectSection';
 import ExpInputSection from './ExpInputSection';
 import SolJanus from './UI/Exp/SolJanus';
 import { REGEX } from '../constants/constants';
+import { useGlobalState } from '../context/GlobalStateProvider';
 
-type ExpIncreaseType = {
-  expIncrease: number;
-  setExpIncrease: React.Dispatch<React.SetStateAction<number>>;
-};
+const ExpSetting = () => {
+  const { expRate, setExpRate } = useGlobalState();
 
-const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   const [expCouponValue, setExpCouponValue] = useState('');
   const [mvpCouponValue, setMvpCouponValue] = useState('');
   const [accumulationPotion, setAccumulationPotionValue] = useState('');
@@ -52,7 +50,7 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(expCouponValue),
-      setExpIncrease,
+      setExpRate,
       setValue: setExpCouponValue,
     });
   };
@@ -65,7 +63,7 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(mvpCouponValue),
-      setExpIncrease,
+      setExpRate,
       setValue: setMvpCouponValue,
     });
   };
@@ -76,8 +74,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(accumulationPotion),
-      setExpIncrease,
       setValue: setAccumulationPotionValue,
+      setExpRate,
     });
   };
 
@@ -87,8 +85,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(extremeGoldPotion),
-      setExpIncrease,
       setValue: setExtremeGoldPotionValue,
+      setExpRate,
     });
   };
 
@@ -98,8 +96,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(spiritPendant),
-      setExpIncrease,
       setValue: setSpiritPendantValue,
+      setExpRate,
     });
   };
 
@@ -109,8 +107,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(boostRing),
-      setExpIncrease,
       setValue: setBoostRingValue,
+      setExpRate,
     });
   };
 
@@ -120,8 +118,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(elvenBlessing),
-      setExpIncrease,
       setValue: setElvenBlessingValue,
+      setExpRate,
     });
   };
 
@@ -131,8 +129,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(kinshipRing),
-      setExpIncrease,
       setValue: setKinshipRingValue,
+      setExpRate,
     });
   };
 
@@ -142,8 +140,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(zeroUnion),
-      setExpIncrease,
       setValue: setZeroUnionValue,
+      setExpRate,
     });
   };
 
@@ -153,8 +151,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(loadedDice),
-      setExpIncrease,
       setValue: setLoadedDiceValue,
+      setExpRate,
     });
   };
 
@@ -164,8 +162,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleValueChange({
       inputValue,
       currentValue: Number(premiumPCroom),
-      setExpIncrease,
       setValue: setPremiumPCroomValue,
+      setExpRate,
     });
   };
 
@@ -175,8 +173,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleInputValueChange({
       inputValue,
       currentValue: holySymbol,
-      setExpIncrease,
       setValue: setHolySymbolValue,
+      setExpRate,
       regex: REGEX.NUMBER,
       maxAllowedValue: 35,
     });
@@ -188,8 +186,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleInputValueChange({
       inputValue,
       currentValue: solJanus,
-      setExpIncrease,
       setValue: setSolJanusValue,
+      setExpRate,
       regex: REGEX.NUMBER,
       maxAllowedValue: 100,
     });
@@ -203,8 +201,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleInputValueChange({
       inputValue,
       currentValue: hyperStats,
-      setExpIncrease,
       setValue: setHyperStatsValue,
+      setExpRate,
       regex: REGEX.NUMBER_AND_DOT,
       maxAllowedValue: 10,
     });
@@ -218,8 +216,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleInputValueChange({
       inputValue,
       currentValue: unionPlacement,
-      setExpIncrease,
       setValue: setUnionPlacementValue,
+      setExpRate,
       regex: REGEX.NUMBER_AND_DOT,
       maxAllowedValue: 10,
     });
@@ -231,8 +229,8 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
     handleInputValueChange({
       inputValue,
       currentValue: expEtc,
-      setExpIncrease,
       setValue: setExpEtcValue,
+      setExpRate,
       regex: REGEX.NUMBER_AND_DOT,
       maxAllowedValue: 10,
     });
@@ -408,7 +406,7 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
             variant="h5"
             component="div"
           >
-            총경험치 증가량 {expIncrease}%
+            총경험치 증가량 {expRate}%
           </Typography>
         </Box>
       </Box>

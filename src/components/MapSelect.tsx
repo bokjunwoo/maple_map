@@ -5,12 +5,11 @@ import { SetStateAction, useEffect, useState } from 'react';
 import { AraneRiverMapData, GrandisMapData } from '../data/mapDatas';
 import MapTable from './MapTable';
 import { MapDataType, MapType } from '../data/mapTypes';
+import { useGlobalState } from '../context/GlobalStateProvider';
 
-type MapSeletType = {
-  level: number;
-};
+const MapSelect = () => {
+  const { level } = useGlobalState();
 
-const MapSelect = ({ level }: MapSeletType) => {
   const [mapRegion, setMapRegion] = useState<'아케인리버' | '그란디스'>(
     level >= 260 ? '그란디스' : '아케인리버'
   );

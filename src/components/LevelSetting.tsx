@@ -1,12 +1,10 @@
 import { Box, TextField, Typography } from '@mui/material';
 import { ChangeEvent } from 'react';
+import { useGlobalState } from '../context/GlobalStateProvider';
 
-type LevelSettingType = {
-  level: number;
-  setLevel: React.Dispatch<React.SetStateAction<number>>;
-};
+const LevelSetting = () => {
+  const { level, setLevel } = useGlobalState();
 
-const LevelSetting = ({ level, setLevel }: LevelSettingType) => {
   const handleLevelValueCange = (event: ChangeEvent<HTMLInputElement>) => {
     const targetValue = Number(event.target.value);
 
