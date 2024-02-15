@@ -18,6 +18,7 @@ type CardMapDetailType = {
 const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
   const totalNumberOfMonsters = sumArrayOrNumber(mapInfo.number_of_monster);
   const monsterNameValue = arrayToString(mapInfo.monster);
+  const monsterLevelValue = arrayToString(mapInfo.monster_level);
   const monsterMoneyValue = arrayToString(mapInfo.monster_money);
   const monsterExperienceValue = arrayToString(mapInfo.monster_experience);
 
@@ -63,23 +64,29 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
 
   const expReward = Number(
     calculateReward(
-      monsterValue,
       mapInfo.monster_experience,
+      mapInfo.number_of_monster,
       SIX_MINUTES
     ).toFixed(0)
   );
 
   const mesoReward = Number(
-    calculateReward(monsterValue, mapInfo.monster_money, 6).toFixed(0)
+    calculateReward(
+      mapInfo.monster_money,
+      mapInfo.number_of_monster,
+      SIX_MINUTES
+    ).toFixed(0)
   );
 
   return (
-    <Card sx={{ display: 'flex', border: 'none', boxShadow: 'none' }}>
+    <Card
+      sx={{ display: 'flex', border: 'none', boxShadow: 'none', height: 238 }}
+    >
       <CardMedia
         component="img"
         sx={{
           width: 460,
-          height: 230,
+          height: 238,
           objectFit: 'fill',
           borderRadius: '4px',
         }}
@@ -98,7 +105,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
 
           <CardAvatar
             src={`/images/symbol_icon/${mapInfo.map_key}.png`}
-            variant="subtitle1"
+            variant="subtitle2"
             text={mapInfo.symbols}
             size={24}
           />
@@ -106,7 +113,7 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
           <CardAvatar
             src={`./images/monster.png`}
             variant="subtitle2"
-            text={monsterNameValue}
+            text={`(Lv.${monsterLevelValue}) ${monsterNameValue}`}
             size={24}
           />
 
