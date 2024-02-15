@@ -170,11 +170,29 @@ const ExpSetting = ({ expIncrease, setExpIncrease }: ExpIncreaseType) => {
   };
 
   const handleHolySymbolChange = (event: SelectChangeEvent) => {
-    setHolySymbolValue(event.target.value);
+    const inputValue = event.target.value;
+
+    handleInputValueChange({
+      inputValue,
+      currentValue: holySymbol,
+      setExpIncrease,
+      setValue: setHolySymbolValue,
+      regex: REGEX.NUMBER,
+      maxAllowedValue: 35,
+    });
   };
 
   const handleSolJanusChange = (event: SelectChangeEvent) => {
-    setSolJanusValue(event.target.value);
+    const inputValue = event.target.value;
+
+    handleInputValueChange({
+      inputValue,
+      currentValue: solJanus,
+      setExpIncrease,
+      setValue: setSolJanusValue,
+      regex: REGEX.NUMBER,
+      maxAllowedValue: 100,
+    });
   };
 
   const handleHyperStatsChange = (
