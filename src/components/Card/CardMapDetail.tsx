@@ -6,16 +6,20 @@ import CardValueWithLabelUI from './CardUI/CardValueWithLabelUI';
 import CardTextFieldWithLabelUI from './CardUI/CardTextFieldWithLabelUI';
 import {
   arrayToString,
-  calculateReward,
+  calculateMonsterExpReward,
+  calculateMonsterMesoReward,
   sumArrayOrNumber,
 } from '../../util/utils';
 import { REGEX, SIX_MINUTES } from '../../constants/constants';
+import { useGlobalState } from '../../context/GlobalStateProvider';
 
 type CardMapDetailType = {
   mapInfo: MapType;
 };
 
 const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
+  const { level, expRate } = useGlobalState();
+
   const totalNumberOfMonsters = sumArrayOrNumber(mapInfo.number_of_monster);
   const monsterNameValue = arrayToString(mapInfo.monster);
   const monsterLevelValue = arrayToString(mapInfo.monster_level);
@@ -63,19 +67,22 @@ const CardMapDetail = ({ mapInfo }: CardMapDetailType) => {
   };
 
   const expReward = Number(
-    calculateReward(
-      mapInfo.monster_experience,
-      mapInfo.number_of_monster,
-      SIX_MINUTES
-    ).toFixed(0)
+    calculateMonsterExpReward({
+      expOfMonster: mapInfo.monster_experience,
+      numberOfMonsters: mapInfo.number_of_monster,
+      time: SIX_MINUTES,
+      expRate,
+      playerLevel: level,
+      monsterLevel: mapInfo.monster_level,
+    }).toFixed(0)
   );
 
   const mesoReward = Number(
-    calculateReward(
-      mapInfo.monster_money,
-      mapInfo.number_of_monster,
-      SIX_MINUTES
-    ).toFixed(0)
+    calculateMonsterMesoReward({
+      mesoOfMonster: mapInfo.monster_money,
+      numberOfMonsters: mapInfo.number_of_monster,
+      time: SIX_MINUTES,
+    })
   );
 
   return (

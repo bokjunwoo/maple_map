@@ -3,11 +3,13 @@ import { HeadCell, MapType } from '../../../data/mapTypes';
 import SelectCellUI from './SelectCellUI';
 import SwitchCellUI from './SwitchCellUI';
 import {
+  calculateMonsterExpReward,
+  calculateMonsterMesoReward,
   calculateNumberOfMonsters,
-  calculateReward,
   sumArrayOrNumber,
 } from '../../../util/utils';
 import { HALF_HOUR } from '../../../constants/constants';
+import { useGlobalState } from '../../../context/GlobalStateProvider';
 
 type TableCellContentUIType = {
   headCell: HeadCell;
@@ -22,6 +24,8 @@ const TableCellContentUI = ({
   handleSwitchChange,
   handleSelectChange,
 }: TableCellContentUIType) => {
+  const { level, expRate } = useGlobalState();
+
   switch (headCell.id) {
     case 'rune':
       return <SwitchCellUI checked={item.rune} onChange={handleSwitchChange} />;
@@ -37,31 +41,34 @@ const TableCellContentUI = ({
     case 'half_hour_maximum_monster_experience':
       return (
         <Box>
-          {calculateReward(
-            item.monster_experience,
-            item.number_of_monster,
-            HALF_HOUR
-          ).toLocaleString()}
+          {calculateMonsterExpReward({
+            expOfMonster: item.monster_experience,
+            numberOfMonsters: item.number_of_monster,
+            time: HALF_HOUR,
+            expRate,
+            playerLevel: level,
+            monsterLevel: item.monster_level,
+          }).toLocaleString()}
         </Box>
       );
     case 'half_hour_number_of_monster':
       return (
         <Box>
-          {calculateNumberOfMonsters(
-            item.number_of_monster,
-            HALF_HOUR
-          ).toLocaleString()}
+          {calculateNumberOfMonsters({
+            numberOfMonsters: item.number_of_monster,
+            time: HALF_HOUR,
+          }).toLocaleString()}
         </Box>
       );
 
     case 'half_hour_net_meso':
       return (
         <Box>
-          {calculateReward(
-            item.monster_money,
-            item.number_of_monster,
-            HALF_HOUR
-          ).toLocaleString()}
+          {calculateMonsterMesoReward({
+            mesoOfMonster: item.monster_money,
+            numberOfMonsters: item.number_of_monster,
+            time: HALF_HOUR,
+          }).toLocaleString()}
         </Box>
       );
 
