@@ -13,3 +13,8 @@ export type HandleValueInputChangeParams = {
   regex: RegExp;
   maxAllowedValue: number;
 };
+
+export type LevelComparison = {
+  playerLevel: number;
+  monsterLevel: number;
+};

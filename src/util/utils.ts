@@ -2,6 +2,7 @@ import { SUMMON_RATE_PER_MINUTE } from '../constants/constants';
 import {
   HandleValueChangeParams,
   HandleValueInputChangeParams,
+  LevelComparison,
 } from './Tutils';
 
 export const handleValueChange = ({
@@ -108,4 +109,58 @@ export const sumArrayOrNumber = (input: number | number[]) => {
   return Array.isArray(input)
     ? input.reduce((total, num) => total + num, 0)
     : input;
+};
+
+const calculateSingleScale = ({
+  playerLevel,
+  monsterLevel,
+}: LevelComparison): number => {
+  const diff = playerLevel - monsterLevel;
+  if (diff >= 40) {
+    return 70;
+  } else if (diff >= 21) {
+    return 71 + (diff - 21);
+  } else if (diff >= 20) {
+    return 95;
+  } else if (diff >= 18) {
+    return 96;
+  } else if (diff >= 16) {
+    return 97;
+  } else if (diff >= 14) {
+    return 98;
+  } else if (diff >= 12) {
+    return 99;
+  } else if (diff >= 10) {
+    return 100;
+  } else if (diff >= 5) {
+    return 105;
+  } else if (diff >= 2) {
+    return 110;
+  } else if (diff >= 0) {
+    return 120;
+  } else if (diff >= -2) {
+    return 110;
+  } else if (diff >= -5) {
+    return 105 - (diff + 5) * 4;
+  } else if (diff >= -9) {
+    return 70 - (diff + 9);
+  } else if (diff >= -20) {
+    return 10;
+  } else if (diff < -20) {
+    return 0;
+  }
+  return 0;
+};
+
+const calculateScale = ({
+  playerLevel,
+  monsterLevel,
+}: LevelComparison): number | number[] => {
+  if (Array.isArray(monsterLevel)) {
+    return monsterLevel.map((monsterLevel) =>
+      calculateSingleScale({ playerLevel, monsterLevel })
+    );
+  } else {
+    return calculateSingleScale({ playerLevel, monsterLevel });
+  }
 };
