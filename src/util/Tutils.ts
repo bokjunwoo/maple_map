@@ -23,3 +23,7 @@ export interface MonsterOptions {
   numberOfMonsters: number | number[];
   time: number;
 }
+
+export interface MonsterMesoCalculationOptions extends MonsterOptions {
+  mesoOfMonster: number | number[];
+}

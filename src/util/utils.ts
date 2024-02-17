@@ -3,6 +3,7 @@ import {
   HandleValueChangeParams,
   HandleValueInputChangeParams,
   LevelComparison,
+  MonsterMesoCalculationOptions,
   MonsterOptions,
 } from './Tutils';
 
@@ -60,21 +61,25 @@ export const formatNumber = (number: number, unit: '메소' | '경험치') => {
   return result.trim() + ' ' + unit;
 };
 
-export const calculateReward = (
-  value: number | number[],
-  numberOfMonsters: number | number[],
-  time: number
-) => {
+export const calculateMonsterMesoReward = ({
+  mesoOfMonster,
+  numberOfMonsters,
+  time,
+}: MonsterMesoCalculationOptions): number => {
   let totalReward = 0;
 
-  if (typeof numberOfMonsters === 'number' && typeof value === 'number') {
-    totalReward = numberOfMonsters * value * SUMMON_RATE_PER_MINUTE * time;
+  if (
+    typeof numberOfMonsters === 'number' &&
+    typeof mesoOfMonster === 'number'
+  ) {
+    totalReward =
+      numberOfMonsters * mesoOfMonster * SUMMON_RATE_PER_MINUTE * time;
   }
 
-  if (Array.isArray(value) && Array.isArray(numberOfMonsters)) {
+  if (Array.isArray(mesoOfMonster) && Array.isArray(numberOfMonsters)) {
     totalReward = numberOfMonsters.reduce((total, numMonsters, index) => {
       const monstersValue =
-        numMonsters * value[index] * SUMMON_RATE_PER_MINUTE * time;
+        numMonsters * mesoOfMonster[index] * SUMMON_RATE_PER_MINUTE * time;
       return total + monstersValue;
     }, 0);
   }
