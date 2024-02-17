@@ -127,13 +127,14 @@ export const calculateMonsterExpReward = ({
       playerLevel,
       monsterLevel,
     });
-    const adjustedValue = playerLevel * (scale / 100);
+
+    const adjustedValue = (scale / 100) * expOfMonster;
     totalReward =
       numberOfMonsters *
       adjustedValue *
       SUMMON_RATE_PER_MINUTE *
       time *
-      expRate;
+      (expRate / 100);
   }
 
   if (
@@ -146,13 +147,13 @@ export const calculateMonsterExpReward = ({
         playerLevel,
         monsterLevel: monsterLevel[index],
       });
-      const adjustedValue = val * (scale / 100);
+      const adjustedValue = (scale / 100) * expOfMonster[index];
       const monstersValue =
         numberOfMonsters[index] *
         adjustedValue *
         SUMMON_RATE_PER_MINUTE *
         time *
-        expRate;
+        (expRate / 100);
       return total + monstersValue;
     }, 0);
   }
