@@ -3,6 +3,7 @@ import {
   HandleValueChangeParams,
   HandleValueInputChangeParams,
   LevelComparison,
+  MonsterOptions,
 } from './Tutils';
 
 export const handleValueChange = ({
@@ -81,10 +82,10 @@ export const calculateReward = (
   return totalReward;
 };
 
-export const calculateNumberOfMonsters = (
-  numberOfMonsters: number | number[],
-  time: number
-) => {
+export const calculateNumberOfMonsters = ({
+  numberOfMonsters,
+  time,
+}: MonsterOptions) => {
   let totalMonsters = 0;
 
   if (typeof numberOfMonsters === 'number') {

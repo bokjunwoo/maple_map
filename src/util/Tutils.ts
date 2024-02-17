@@ -18,3 +18,8 @@ export type LevelComparison = {
   playerLevel: number;
   monsterLevel: number;
 };
+
+export interface MonsterOptions {
+  numberOfMonsters: number | number[];
+  time: number;
+}
