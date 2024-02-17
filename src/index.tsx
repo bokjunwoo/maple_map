@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline, createTheme } from '@mui/material';
+import { GlobalStateProvider } from './context/GlobalStateProvider';
 
 const theme = createTheme({
   palette: {
@@ -22,8 +23,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <GlobalStateProvider>
+        <CssBaseline />
+        <App />
+      </GlobalStateProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
