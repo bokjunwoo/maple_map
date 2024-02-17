@@ -3,6 +3,7 @@ import {
   HandleValueChangeParams,
   HandleValueInputChangeParams,
   LevelComparison,
+  MonsterExpCalculationOptions,
   MonsterMesoCalculationOptions,
   MonsterOptions,
 } from './Tutils';
@@ -107,6 +108,58 @@ export const calculateNumberOfMonsters = ({
   return totalMonsters;
 };
 
+export const calculateMonsterExpReward = ({
+  expOfMonster,
+  numberOfMonsters,
+  time,
+  expRate,
+  playerLevel,
+  monsterLevel,
+}: MonsterExpCalculationOptions): number => {
+  let totalReward = 0;
+
+  if (
+    typeof expOfMonster === 'number' &&
+    typeof numberOfMonsters === 'number' &&
+    typeof monsterLevel === 'number'
+  ) {
+    const scale = calculateSingleScale({
+      playerLevel,
+      monsterLevel,
+    });
+    const adjustedValue = playerLevel * (scale / 100);
+    totalReward =
+      numberOfMonsters *
+      adjustedValue *
+      SUMMON_RATE_PER_MINUTE *
+      time *
+      expRate;
+  }
+
+  if (
+    Array.isArray(expOfMonster) &&
+    Array.isArray(numberOfMonsters) &&
+    Array.isArray(monsterLevel)
+  ) {
+    totalReward = expOfMonster.reduce((total, val, index) => {
+      const scale = calculateSingleScale({
+        playerLevel,
+        monsterLevel: monsterLevel[index],
+      });
+      const adjustedValue = val * (scale / 100);
+      const monstersValue =
+        numberOfMonsters[index] *
+        adjustedValue *
+        SUMMON_RATE_PER_MINUTE *
+        time *
+        expRate;
+      return total + monstersValue;
+    }, 0);
+  }
+
+  return totalReward;
+};
+
 export const arrayToString = (input: number | number[] | string | string[]) => {
   return Array.isArray(input) ? input.join(', ') : input;
 };
@@ -156,17 +209,4 @@ const calculateSingleScale = ({
     return 0;
   }
   return 0;
-};
-
-const calculateScale = ({
-  playerLevel,
-  monsterLevel,
-}: LevelComparison): number | number[] => {
-  if (Array.isArray(monsterLevel)) {
-    return monsterLevel.map((monsterLevel) =>
-      calculateSingleScale({ playerLevel, monsterLevel })
-    );
-  } else {
-    return calculateSingleScale({ playerLevel, monsterLevel });
-  }
 };

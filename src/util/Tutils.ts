@@ -27,3 +27,10 @@ export interface MonsterOptions {
 export interface MonsterMesoCalculationOptions extends MonsterOptions {
   mesoOfMonster: number | number[];
 }
+
+export interface MonsterExpCalculationOptions extends MonsterOptions {
+  expOfMonster: number | number[];
+  expRate: number;
+  playerLevel: number;
+  monsterLevel: number | number[];
+}
